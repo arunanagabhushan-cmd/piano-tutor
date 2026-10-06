@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piano-Tutor App · Presentation</title>
+<meta name="description" content="A short presentation of the Piano-Tutor App: the scoring pipeline, the language models that write encouraging feedback, and the results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a fixed 1280x720 stage scaled to the window; one slide visible at a time.
+   Deliberately a single light look, so the white-ground figures sit naturally on every slide. */
+:root{
+  --bg:#e9ebef; --paper:#f7f8fa; --surface:#ffffff; --fg:#15171c; --muted:#5a6070; --line:#d8dbe2;
+  --felt:#b0243b; --ivory:#2f62b8; --slip:#b86e00; --ok:#2e7d4f;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);overflow:hidden}
+.viewport{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);bottom:calc(56px + env(safe-area-inset-bottom,0px))}
+.stage{width:1280px;height:720px;position:absolute;left:50%;top:50%;transform-origin:center center;background:var(--paper);box-shadow:0 10px 40px rgba(20,24,40,.12);border-radius:10px;overflow:hidden}
+.slide{position:absolute;inset:0;padding:56px 72px;display:flex;flex-direction:column;gap:18px;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.slide.on{opacity:1;pointer-events:auto}
+@media (prefers-reduced-motion: reduce){.slide{transition:none}}
+
+/* type */
+h1,h2,h3{font-family:var(--display);font-weight:500;margin:0;line-height:1.08;text-wrap:balance}
+h2{font-size:46px}
+h3{font-size:24px;font-weight:700}
+p{margin:0}
+.kicker{font:600 13px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--felt)}
+.lead{font-size:23px;line-height:1.45;color:var(--muted);max-width:980px}
+.small{font-size:15px;color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* building blocks */
+.row{display:grid;gap:22px}
+.c2{grid-template-columns:1fr 1fr}.c3{grid-template-columns:repeat(3,1fr)}.c4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.big{font:500 64px/1 var(--display);font-variant-numeric:lining-nums}
+.big small{font-size:28px;color:var(--muted)}
+.lbl{font:600 12px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--felt);margin-bottom:10px}
+.txt{font-size:17px;line-height:1.45;color:var(--muted);margin-top:8px}
+figure{margin:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;flex:1}
+figure img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px}
+.fill{flex:1;min-height:0;display:flex}
+.ba{display:flex;align-items:baseline;gap:14px;margin-top:10px}
+.ba b{font:600 36px/1 var(--mono)}
+.ba .b{color:var(--ivory)} .ba .a{color:var(--felt)} .ba span{color:var(--muted);font:500 26px var(--mono)}
+.quote{border-left:3px solid var(--slip);padding:6px 0 6px 16px;font:italic 21px/1.4 var(--display)}
+.who{font:600 13px var(--mono);color:var(--slip);display:block;font-style:normal;margin-bottom:2px}
+.tier{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.tier b{font:500 40px/1 var(--display)}
+.tier span{font-size:19px}
+.chip{display:inline-block;font:600 13px var(--mono);padding:4px 10px;border-radius:99px;border:1px solid var(--line);color:var(--muted);margin:4px 6px 0 0}
+.chip.on{border-color:var(--fg);color:var(--fg)}
+table{border-collapse:collapse;width:100%;font-size:16px;background:var(--surface)}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:center}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:600}
+td.us,th.us{background:#fbeef0}
+.y{color:var(--ok);font-weight:700}.n{color:#9aa0ad}.p{color:var(--slip);font-weight:600}
+.draft{display:grid;grid-template-columns:150px 1fr 190px;gap:16px;padding:11px 16px;border-bottom:1px solid var(--line);align-items:baseline;font-size:16px;background:var(--surface)}
+.draft .m{font:600 14px var(--mono)}
+.draft q{font-style:italic}
+.draft .v{font-weight:600;font-size:14px}
+.draft.bad .v{color:var(--slip)} .draft.good .v{color:var(--ok)}
+.draft.good{background:#fdf6f7}
+svg text{font-family:var(--mono)}
+.mid{margin-block:auto}
+.slide a{color:var(--felt)}
+.draft.lg{font-size:19px;padding:15px 18px}
+
+/* title slide */
+.title-slide{justify-content:center;gap:16px}
+.title-slide h1{font-size:96px}
+.title-slide .tag{font:italic 500 36px var(--display);color:var(--felt)}
+.title-slide .sub{font:500 26px/1.35 var(--display);color:var(--muted);max-width:900px}
+.title-slide .by{margin-top:26px;font-size:18px;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);padding-top:16px;max-width:900px}
+.title-slide .by p{margin:0}
+.title-slide .by .name{font-size:22px;font-weight:600;color:var(--fg);margin-bottom:4px}
+.title-slide .by .guide{font-style:italic;margin-top:8px}
+.title-slide .by strong{color:var(--fg);font-weight:600}
+
+/* controls */
+.bar{position:fixed;left:0;right:0;bottom:0;height:calc(56px + env(safe-area-inset-bottom,0px));padding:0 20px env(safe-area-inset-bottom,0px);display:flex;align-items:center;gap:14px;background:var(--surface);border-top:1px solid var(--line);font-size:14px}
+.bar button{font:600 14px var(--body);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:8px 14px;cursor:pointer}
+.bar button:hover{border-color:var(--fg)}
+.bar button:focus-visible,.bar a:focus-visible{outline:2px solid var(--felt);outline-offset:2px}
+.bar a{color:var(--muted);text-decoration:none}
+.prog{flex:1;height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--felt);transition:width .3s}
+.count{font-family:var(--mono);color:var(--muted);min-width:56px;text-align:right}
+@media (max-width:600px){.bar{gap:10px;padding-inline:16px}.bar .home{display:none}.bar button{padding:8px 10px}}
+</style>
+</head>
+<body>
+<div class="viewport"><div class="stage" id="stage">
+
+<!-- 1 -->
+<section class="slide title-slide" aria-label="Title">
+  <span class="kicker">Children's practice feedback · teacher approves</span>
+  <h1>Piano&#8209;Tutor App</h1>
+  <p class="tag">From notes to kind words.</p>
+  <p class="sub">A Tiered&#8209;Scoring Pipeline and Teacher&#8209;tailored Language Models to provide encouraging feedback to students based on their piano practice</p>
+  <div class="by">
+    <p class="name">Aruna Nagabhushan</p>
+    <p><strong>Neuqua Valley High School</strong>, Naperville, IL</p>
+    <p>Summer Internship 2026, <strong>Vanderbilt University</strong></p>
+    <p class="guide">Under the guidance of <strong>Dr. Aniruddha Gokhale</strong>, <strong>Dr. Himanshu Neema</strong> and <strong>Dr. Yogesh Barve</strong>, <strong>Vanderbilt University</strong></p>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide" aria-label="The problem">
+  <span class="kicker">The problem</span>
+  <h2>Most practice happens alone</h2>
+  <div class="row c3" style="margin-top:20px">
+    <div class="card"><div class="lbl">With the teacher</div><div class="big">1<small> lesson a week</small></div><p class="txt">The teacher hears the child once a week.</p></div>
+    <div class="card"><div class="lbl">Alone</div><div class="big">6<small> days a week</small></div><p class="txt">A mistake practiced all week gets learned.</p></div>
+    <div class="card"><div class="lbl">What feedback needs</div><div class="big" style="font-size:44px;line-height:1.15">Right<br><span style="color:var(--felt)">and kind</span></div><p class="txt">Wrong advice is worse than none: a child will practice it.</p></div>
+  </div>
+  <p class="lead" style="margin-top:22px">Piano-Tutor scores each practice recording against the teacher's own recording, and small local language models draft encouraging feedback that the teacher approves.</p>
+</section>
+
+<!-- 3 -->
+<section class="slide" aria-label="The loop">
+  <span class="kicker">How it works</span>
+  <h2>One recording, six steps, one human decision</h2>
+  <figure><img src="assets/loop.svg" alt="The feedback loop: record, transcribe, clean, score, draft, teacher approves; corrections become training data."></figure>
+  <p class="small">The student only ever sees text the teacher approved. Every correction becomes training data.</p>
+</section>
+
+<!-- 4 -->
+<section class="slide" aria-label="Architecture">
+  <span class="kicker">How it's built</span>
+  <h2>One account, no outside services</h2>
+  <figure><img src="assets/architecture.svg" alt="System architecture: browsers, web application, background grading and drafting, local model server, databases and the evaluation harness."></figure>
+</section>
+
+<!-- 5 -->
+<section class="slide" aria-label="Scoring">
+  <span class="kicker">Part I · The scoring pipeline</span>
+  <h2>Scored phrase by phrase, by tier</h2>
+  <div class="row" style="grid-template-columns:1.55fr 1fr;flex:1;min-height:0;align-items:center">
+    <figure style="height:100%"><img src="assets/pipeline.svg" alt="The scoring pipeline: transcribe, clean, segment and align, score each phrase at the tier, score vector."></figure>
+    <div>
+      <div class="tier"><b>1</b><span>Right notes</span></div>
+      <div class="tier"><b>2</b><span>+ right order</span></div>
+      <div class="tier"><b>3</b><span>+ even, right speed, held right</span></div>
+      <div class="tier"><b>4</b><span>+ loud and soft</span></div>
+      <p class="small" style="margin-top:14px">Tiers 1–2 never score speed: slow, careful practice is right for a beginner.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="slide" aria-label="Fixes">
+  <span class="kicker">Part I · Making the scores trustworthy</span>
+  <h2>Four faults found and fixed</h2>
+  <div class="row c2 mid">
+    <div class="card"><div class="lbl">Choosing the transcriber</div><div class="ba"><b class="b">0.52</b><span>→</span><b class="a">0.93</b></div><p class="txt">Note accuracy (F1): lighter model vs ByteDance's.</p></div>
+    <div class="card"><div class="lbl">Slow students lost notes</div><div class="ba"><b class="b">5/8</b><span>→</span><b class="a">8/8</b></div><p class="txt">Notes kept at half speed, after phrase windows followed the student's tempo.</p></div>
+    <div class="card"><div class="lbl">Tempo went unnoticed</div><div class="ba"><b class="b">1.0</b><span>→</span><b class="a">0.0</b></div><p class="txt">Tempo score at 3× too slow, plus a "very slow" flag, from tier 3 only.</p></div>
+    <div class="card"><div class="lbl">Note length turned upside down</div><div class="ba"><b class="b">0.00</b><span>→</span><b class="a">1.00</b></div><p class="txt">Correct playing at 3× slow, once note length was judged for the student's own speed.</p></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="slide" aria-label="Verification">
+  <span class="kicker">Part I · Checking the pipeline</span>
+  <h2>Break it on purpose, and write down how</h2>
+  <div class="row" style="grid-template-columns:1fr 1.25fr;flex:1;min-height:0;align-items:center">
+    <div class="row c2" style="gap:16px">
+      <div class="card"><div class="big mono" style="font-size:52px">186</div><p class="txt">simulated practice attempts</p></div>
+      <div class="card"><div class="big mono" style="font-size:52px">396</div><p class="txt">recorded mistakes, 8 kinds</p></div>
+      <div class="card"><div class="big mono" style="font-size:52px">3,347</div><p class="txt">checks against the record, all passed</p></div>
+      <div class="card"><div class="big mono" style="font-size:52px">6</div><p class="txt">simulated students moving up the tiers</p></div>
+    </div>
+    <figure style="height:100%"><img src="assets/misalignment-notation.svg" alt="Six kinds of mistake in musical notation: late start, extra note, missing note, held too long, cut short, extra rest."></figure>
+  </div>
+</section>
+
+<!-- 8 -->
+<section class="slide" aria-label="Writing for a child">
+  <span class="kicker">Part II · Language models that encourage</span>
+  <h2>Writing for a child</h2>
+  <div class="row c3" style="margin-top:6px">
+    <div class="card"><div class="lbl">Short</div><p style="font-size:22px">One sentence per phrase, under <b>60</b> words.</p></div>
+    <div class="card"><div class="lbl">Plain</div><p style="font-size:22px">No numbers, no jargon. Warm first, then one thing to try.</p></div>
+    <div class="card"><div class="lbl">True</div><p style="font-size:22px">Only what was measured. No tempo flag means the speed was fine.</p></div>
+  </div>
+  <div class="card" style="margin-top:8px;display:flex;align-items:center;gap:28px">
+    <div class="big" style="color:var(--slip);white-space:nowrap">34–58%</div>
+    <p style="font-size:21px;line-height:1.4">of the time, off-the-shelf models still told a beginner to fix their speed, at levels where speed isn't even measured. A stricter prompt didn't help.</p>
+  </div>
+  <p class="small">Full prompt text: <span class="mono">piano-tutor-app/docs/05_llm_feedback.md</span> · the judge's prompts: <span class="mono">piano-tutor-eval/docs/06_prompts.md</span></p>
+</section>
+
+<!-- 9 -->
+<section class="slide" aria-label="The failure on screen">
+  <span class="kicker">Part II · What prompting couldn't fix</span>
+  <h2>Warm, but making things up</h2>
+  <div class="row" style="grid-template-columns:1.2fr 1fr;flex:1;min-height:0;align-items:center">
+    <figure style="height:100%"><img src="assets/auth-14-tutor-ai-review-5.png" alt="The teacher's review screen with scores and three model drafts."></figure>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <p style="font-size:19px">Timing perfect, speed within range, no tempo flag. Yet:</p>
+      <p class="quote"><span class="who">llama</span>"…slightly slower than expected."</p>
+      <p class="quote"><span class="who">qwen</span>"…you rushed a bit."</p>
+      <p class="quote"><span class="who">gemma</span>"…smoother in terms of timing."</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="slide" aria-label="Training results">
+  <span class="kicker">Part II · Training the models</span>
+  <h2>Fine-tuning fixed what prompting couldn't</h2>
+  <div class="row c2" style="flex:1;min-height:0">
+    <div class="card" style="display:flex;flex-direction:column"><div class="lbl">Made-up speed advice, out of 186 attempts</div><svg id="ch-viol" viewBox="0 0 520 260" style="width:100%;flex:1" role="img" aria-label="Violations per model before and after training: gemma 105 to 0, llama 69 to 2, qwen 65 to 1"></svg></div>
+    <div class="card" style="display:flex;flex-direction:column"><div class="lbl">Feedback quality, out of 12</div><svg id="ch-rub" viewBox="0 0 520 260" style="width:100%;flex:1" role="img" aria-label="Rubric score before and after: gemma 9.02 to 11.73, llama 9.58 to 11.47, qwen 10.39 to 11.72"></svg></div>
+  </div>
+  <p class="small"><span style="color:var(--ivory)">■</span> before training &nbsp; <span style="color:var(--felt)">■</span> after training &nbsp;·&nbsp; 239 of 558 drafts → 3. Three models, one 8 GB GPU.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide" aria-label="Warm is not right">
+  <span class="kicker">Part II · Measuring it fairly</span>
+  <h2>Warm is not the same as right</h2>
+  <div class="row" style="grid-template-columns:1.3fr 1fr;flex:1;min-height:0;align-items:center">
+    <div class="card"><svg id="ch-warm" viewBox="0 0 560 290" style="width:100%" role="img" aria-label="Accuracy and tone out of 3 for references, tuned models and decoys"></svg>
+      <p class="small"><span style="color:var(--ivory)">■</span> accuracy &nbsp; <span style="color:var(--felt)">■</span> tone · out of 3, blind judge</p></div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div><div class="big">32<small> of 33<a href="notes.html#tone" title="How this was measured">*</a></small></div><p class="txt">drafts from the deployed model rated top for being encouraging and clear to a child.</p></div>
+      <div><div class="big" style="color:var(--slip)">0.50</div><p class="txt">accuracy of warm decoys attached to the wrong performance. Kindness alone is easy; the judge catches it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="slide" aria-label="One case">
+  <span class="kicker">Part II · One real case</span>
+  <h2>Two dropped notes, six drafts</h2>
+  <p class="small">Tier 2, so speed is not scored. Pitch 0.889 and order 0.8 in both phrases.</p>
+  <div class="mid" style="border:1px solid var(--line);border-radius:10px;overflow:hidden">
+    <div class="draft lg bad"><span class="m">gemma, before</span><q>…keeping the pace up a bit… good timing overall…</q><span class="v">invents pace, timing</span></div>
+    <div class="draft lg bad"><span class="m">llama, before</span><q>…one note behind the beat… your sense of rhythm…</q><span class="v">invents rhythm</span></div>
+    <div class="draft lg bad"><span class="m">qwen, before</span><q>…precision in timing… even pacing…</q><span class="v">invents timing</span></div>
+    <div class="draft lg good"><span class="m">gemma, after</span><q>You're getting there. Nearly every note landed in the first section. The second section was close, with a couple of notes astray.</q><span class="v">accurate and warm</span></div>
+    <div class="draft lg good"><span class="m">llama, after</span><q>Good effort — a promising attempt. The first section was mostly right. The second part was close…</q><span class="v">accurate and warm</span></div>
+    <div class="draft lg good" style="border-bottom:0"><span class="m">qwen, after</span><q>Good effort — the first part was close, and the second part was spot on…</q><span class="v" style="color:var(--slip)">warm, wrong on phrase 2</span></div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="slide" aria-label="The teacher decides">
+  <span class="kicker">The teacher's tools</span>
+  <h2>The teacher decides, and teaches the models</h2>
+  <div class="row c2" style="flex:1;min-height:0">
+    <figure style="height:100%"><img src="assets/06-tutor-ai-reviewed.png" alt="A review where the teacher replaced the drafts with their own message."><p class="small" style="margin-top:8px">Approve: the teacher rewrites or picks a draft.</p></figure>
+    <figure style="height:100%"><img src="assets/auth-06-tutor-models.png" alt="Model management with corrections, retraining milestones and the leaderboard."><p class="small" style="margin-top:8px">Tailor: retraining at 50, 100, 200 and 300 corrections.</p></figure>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="slide" aria-label="Comparison">
+  <span class="kicker">How it compares</span>
+  <h2>Between practice apps and teacher platforms</h2>
+  <table class="mid">
+    <thead><tr><th></th><th>Yousician</th><th>Simply Piano</th><th>Skoove</th><th>Piano Marvel</th><th>SmartMusic</th><th>MatchMySound</th><th class="us">Piano-Tutor</th></tr></thead>
+    <tbody>
+      <tr><td>Teacher's own recording as reference</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="y">yes</td><td class="us y">yes</td></tr>
+      <tr><td>Strictness set per student</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="p">levels</td><td class="n">—</td><td class="n">—</td><td class="us y">4 tiers</td></tr>
+      <tr><td>Written feedback, phrase by phrase</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="p">teacher types</td><td class="p">teacher types</td><td class="us y">AI drafts</td></tr>
+      <tr><td>Teacher approves before the student sees it</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="us y">yes</td></tr>
+      <tr><td>Teacher's edits improve the system</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="us y">yes</td></tr>
+      <tr><td>Corrects notes live, as you play</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="us n">whole take</td></tr>
+    </tbody>
+  </table>
+  <p class="small" style="margin-bottom:auto">From vendor pages and independent 2026 reviews; "—" means the sources didn't say.</p>
+</section>
+
+<!-- 15 -->
+<section class="slide" aria-label="Beyond piano">
+  <span class="kicker">Beyond piano</span>
+  <h2>Built with piano, ready for other teachers</h2>
+  <div class="row c2" style="margin-top:6px">
+    <div class="card"><h3>Indian classical violin</h3><p class="txt">Pitch as a continuous contour around the tonic, because ornaments (<em>gamakas</em>) glide.</p>
+      <div style="margin-top:12px"><span class="chip on">1 · svaras</span><span class="chip on">2 · phrase order</span><span class="chip on">3 · gamaka shape</span><span class="chip on">4 · tāla, bowing</span></div></div>
+    <div class="card"><h3>Guided Sanskrit reading</h3><p class="txt">Syllables (<em>akṣara</em>) aligned against the known text.</p>
+      <div style="margin-top:12px"><span class="chip on">1 · syllables</span><span class="chip on">2 · order</span><span class="chip on">3 · vowel length</span><span class="chip on">4 · pace, accents</span></div></div>
+  </div>
+  <p class="lead" style="margin-top:18px">What carries over unchanged: tiered scores, the child-centered rules, teacher approval, the tailoring loop and the testing harness.</p>
+</section>
+
+<!-- 16 -->
+<section class="slide title-slide" aria-label="Summary">
+  <span class="kicker">In short</span>
+  <h2 style="font-size:58px">Scores you can trust, words a child can use, and a teacher who decides.</h2>
+  <div class="row c3" style="margin-top:22px;max-width:1000px">
+    <div><div class="big mono" style="font-size:48px">8/8</div><p class="txt">notes kept at half speed</p></div>
+    <div><div class="big mono" style="font-size:48px">239→3</div><p class="txt">made-up speed advice</p></div>
+    <div><div class="big mono" style="font-size:48px">32/33<a href="notes.html#tone" title="How this was measured" style="font-size:28px">*</a></div><p class="txt">top-rated for tone</p></div>
+  </div>
+  <p class="small" style="margin-top:18px">More: <a href="index.html">the project page</a> · <a href="walkthrough.html">the walkthrough</a> · <a href="notes.html">notes on the numbers</a></p>
+</section>
+
+</div></div>
+
+<nav class="bar" aria-label="Slide controls">
+  <a class="home" href="index.html">← Piano&#8209;Tutor App</a>
+  <button id="prev" type="button" aria-label="Previous slide">← Prev</button>
+  <div class="prog" aria-hidden="true"><i id="prog"></i></div>
+  <span class="count" id="count">1 / 16</span>
+  <button id="next" type="button" aria-label="Next slide">Next →</button>
+</nav>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')], stage=document.getElementById('stage');
+  let i=0;
+  function fit(){
+    const box=stage.parentElement.getBoundingClientRect();
+    const s=Math.min(box.width/1280,box.height/720)*0.96;
+    stage.style.transform='translate(-50%,-50%) scale('+s+')';
+  }
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    document.getElementById('count').textContent=(i+1)+' / '+slides.length;
+    document.getElementById('prog').style.width=((i+1)/slides.length*100)+'%';
+    if(location.hash!=='#'+(i+1)) history.replaceState(null,'','#'+(i+1));
+  }
+  document.getElementById('prev').onclick=()=>show(i-1);
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.addEventListener('keydown',e=>{
+    if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();show(i+1);}
+    if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1);}
+    if(e.key==='Home')show(0); if(e.key==='End')show(slides.length-1);
+  });
+  stage.addEventListener('click',e=>{ if(e.target.closest('a'))return; const r=stage.getBoundingClientRect(); show(e.clientX<r.left+r.width/3?i-1:i+1); });
+  let x0=null; window.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  window.addEventListener('touchend',e=>{ if(x0===null)return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40)show(dx<0?i+1:i-1); x0=null; },{passive:true});
+  window.addEventListener('resize',fit);
+
+  // charts
+  const NS='http://www.w3.org/2000/svg', C={b:'#2f62b8',a:'#b0243b',m:'#5a6070',l:'#d8dbe2',f:'#15171c'};
+  const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+  const tx=(p,x,y,s,o)=>{const t=el('text',Object.assign({x,y,fill:C.m,'font-size':13},o||{}),p);t.textContent=s;return t;};
+  function bars(id,rows,max,ticks,fmt,L){
+    const svg=document.getElementById(id), W=+svg.viewBox.baseVal.width, H=+svg.viewBox.baseVal.height;
+    const R=W-40, top=10, band=(H-40)/rows.length, bh=Math.min(20,band/2-6), X=v=>L+(R-L)*v/max;
+    ticks.forEach(v=>{el('line',{x1:X(v),x2:X(v),y1:top,y2:top+band*rows.length,stroke:C.l},svg);tx(svg,X(v),top+band*rows.length+18,v,{'text-anchor':'middle'});});
+    rows.forEach((r,k)=>{const y=top+k*band+(band-2*bh-4)/2;
+      tx(svg,L-12,y+bh+4,r[0],{'text-anchor':'end',fill:C.f,'font-size':15,'font-weight':600,'font-family':'Public Sans, sans-serif'});
+      [r[1],r[2]].forEach((v,j)=>{const yy=y+j*(bh+4),w=Math.max(X(v)-L,3);
+        el('rect',{x:L,y:yy,width:w,height:bh,rx:3,fill:j?C.a:C.b},svg); tx(svg,L+w+8,yy+bh-4,fmt(v),{fill:C.f,'font-size':14});});
+    });
+  }
+  bars('ch-viol',[['gemma',105,0],['llama',69,2],['qwen',65,1]],120,[0,40,80,120],v=>String(v),80);
+  (function(){
+    const svg=document.getElementById('ch-rub'), L=80,R=480,top=10,band=70, lo=8,hi=12, X=v=>L+(R-L)*(v-lo)/(hi-lo);
+    [8,9,10,11,12].forEach(v=>{el('line',{x1:X(v),x2:X(v),y1:top,y2:top+band*3,stroke:C.l},svg);tx(svg,X(v),top+band*3+18,v,{'text-anchor':'middle'});});
+    [['gemma',9.02,11.73],['llama',9.58,11.47],['qwen',10.39,11.72]].forEach((r,k)=>{const y=top+k*band+band/2;
+      tx(svg,L-12,y+5,r[0],{'text-anchor':'end',fill:C.f,'font-size':15,'font-weight':600,'font-family':'Public Sans, sans-serif'});
+      el('line',{x1:X(r[1]),x2:X(r[2]),y1:y,y2:y,stroke:C.m,'stroke-width':2},svg);
+      [[r[1],C.b],[r[2],C.a]].forEach(([v,c])=>{el('circle',{cx:X(v),cy:y,r:8,fill:c,stroke:'#fff','stroke-width':2},svg);tx(svg,X(v),y-14,v.toFixed(2),{'text-anchor':'middle',fill:C.f,'font-size':13});});
+    });
+  })();
+  bars('ch-warm',[['references',2.88,2.96],['gemma, tuned',2.67,2.97],['llama, tuned',2.42,2.88],['qwen, tuned',1.97,2.88],['decoys',0.50,3.00]],3,[0,1,2,3],v=>v.toFixed(2),130);
+
+  fit(); const h=parseInt(location.hash.slice(1),10); show(isNaN(h)?0:h-1);
+})();
+</script>
+</body>
+</html>

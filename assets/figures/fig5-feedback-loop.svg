@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" width="1100" height="320" font-family="Helvetica, Arial, sans-serif">
+<title>The feedback loop</title>
+<desc>A student recording is transcribed, cleaned, scored phrase by phrase at the tier, and drafted into feedback by local language models. The teacher approves or edits the draft before the student sees it. Each correction becomes training data, which fine-tunes the models.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#15171c"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0243b"/></marker><marker id="aB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f62b8"/></marker></defs>
+<rect width="1100" height="320" fill="#ffffff"/>
+<rect x="30" y="40" width="150" height="84" rx="8" fill="#fff" stroke="#15171c" stroke-width="1.6"/>
+<text x="42" y="66" font-size="11" fill="#b0243b" font-weight="700" text-anchor="start">1</text>
+<text x="58" y="66" font-size="14" fill="#15171c" font-weight="700" text-anchor="start">Record</text>
+<text x="42" y="84" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">student, in the</text>
+<text x="42" y="99" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">browser</text>
+<line x1="182" y1="82.0" x2="206" y2="82.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="208" y="40" width="150" height="84" rx="8" fill="#fff" stroke="#15171c" stroke-width="1.6"/>
+<text x="220" y="66" font-size="11" fill="#b0243b" font-weight="700" text-anchor="start">2</text>
+<text x="236" y="66" font-size="14" fill="#15171c" font-weight="700" text-anchor="start">Transcribe</text>
+<text x="220" y="84" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">audio → notes</text>
+<text x="220" y="99" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">(ByteDance)</text>
+<line x1="360" y1="82.0" x2="384" y2="82.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="386" y="40" width="150" height="84" rx="8" fill="#fff" stroke="#15171c" stroke-width="1.6"/>
+<text x="398" y="66" font-size="11" fill="#b0243b" font-weight="700" text-anchor="start">3</text>
+<text x="414" y="66" font-size="14" fill="#15171c" font-weight="700" text-anchor="start">Clean</text>
+<text x="398" y="84" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">student's and</text>
+<text x="398" y="99" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">teacher's notes</text>
+<line x1="538" y1="82.0" x2="562" y2="82.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="564" y="40" width="150" height="84" rx="8" fill="#fff" stroke="#15171c" stroke-width="1.6"/>
+<text x="576" y="66" font-size="11" fill="#b0243b" font-weight="700" text-anchor="start">4</text>
+<text x="592" y="66" font-size="14" fill="#15171c" font-weight="700" text-anchor="start">Score</text>
+<text x="576" y="84" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">per phrase, at the</text>
+<text x="576" y="99" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">tier; no composite</text>
+<line x1="716" y1="82.0" x2="740" y2="82.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="742" y="40" width="150" height="84" rx="8" fill="#fff" stroke="#15171c" stroke-width="1.6"/>
+<text x="754" y="66" font-size="11" fill="#b0243b" font-weight="700" text-anchor="start">5</text>
+<text x="770" y="66" font-size="14" fill="#15171c" font-weight="700" text-anchor="start">Draft</text>
+<text x="754" y="84" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">local models,</text>
+<text x="754" y="99" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">in parallel</text>
+<line x1="894" y1="82.0" x2="918" y2="82.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="920" y="40" width="150" height="84" rx="8" fill="#fbeef0" stroke="#b0243b" stroke-width="1.6"/>
+<text x="932" y="66" font-size="11" fill="#b0243b" font-weight="700" text-anchor="start">6</text>
+<text x="948" y="66" font-size="14" fill="#b0243b" font-weight="700" text-anchor="start">Teacher approves</text>
+<text x="932" y="84" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">picks, edits or</text>
+<text x="932" y="99" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">rewrites</text>
+<line x1="995.0" y1="126" x2="995.0" y2="168" stroke="#b0243b" stroke-width="1.6" marker-end="url(#aA)"/>
+<rect x="930.0" y="170" width="130" height="54" rx="8" fill="#ffffff" stroke="#b0243b" stroke-width="1.6"/>
+<text x="995.0" y="196" font-size="14" fill="#b0243b" font-weight="700" text-anchor="middle">Student reads it</text>
+<text x="995.0" y="214" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="middle">only approved text</text>
+<rect x="300" y="236" width="520" height="66" rx="8" fill="#f3f6fc" stroke="#2f62b8" stroke-width="1.6"/>
+<text x="560.0" y="262" font-size="14" fill="#2f62b8" font-weight="700" text-anchor="middle">Corrections become training data</text>
+<text x="560.0" y="280" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="middle">each edit is stored per model; at 50, 100, 200 and 300</text>
+<text x="560.0" y="295" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="middle">corrections the model is fine-tuned</text>
+<path d="M 926 126 L 926 269.0 L 822 269.0" fill="none" stroke="#2f62b8" stroke-width="1.6" marker-end="url(#aB)"/>
+<text x="918" y="261.0" font-size="11" fill="#2f62b8" font-weight="700" text-anchor="end">every correction</text>
+<line x1="817.0" y1="234" x2="817.0" y2="128" stroke="#2f62b8" stroke-width="1.6" marker-end="url(#aB)"/>
+<text x="809.0" y="184.0" font-size="11" fill="#2f62b8" font-weight="700" text-anchor="end">tuned model drafts</text>
+<text x="809.0" y="198.0" font-size="11" fill="#2f62b8" font-weight="700" text-anchor="end">alongside the others</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 690" width="1100" height="690" font-family="Helvetica, Arial, sans-serif">
+<title>System architecture of Piano Tutor</title>
+<desc>Teachers and students use a browser. A server-rendered web application handles sign-in, role checks and pages. Background tasks grade each recording with the scoring pipeline and ask locally served language models to draft feedback. Relational data is in MySQL, scores, drafts, corrections and the model registry in MongoDB, and audio in file storage. An offline evaluation harness reuses the same grader, produces training data and fine-tuned models, which are registered with the local model server. Everything runs within the teacher's account.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#15171c"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0243b"/></marker><marker id="aB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f62b8"/></marker></defs>
+<rect width="1100" height="690" fill="#ffffff"/>
+<rect x="150" y="20" width="190" height="52" rx="8" fill="#ffffff" stroke="#b0243b" stroke-width="1.6"/>
+<text x="164" y="44" font-size="14.5" fill="#b0243b" font-weight="700" text-anchor="start">Teacher</text>
+<text x="164" y="61" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">in a web browser</text>
+<rect x="400" y="20" width="190" height="52" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="414" y="44" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Student</text>
+<text x="414" y="61" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">in a web browser</text>
+<rect x="20" y="100" width="1060" height="550" rx="12" fill="#f4f5f7" stroke="#5a6070" stroke-width="1.2" stroke-dasharray="7 5"/>
+<text x="36" y="642" font-size="11.5" fill="#5a6070" font-weight="700" text-anchor="start">THE TEACHER'S ACCOUNT · Docker Compose · no outside services</text>
+<line x1="245" y1="74" x2="245" y2="146" stroke="#b0243b" stroke-width="1.6" marker-end="url(#aA)" marker-start="url(#aA)"/>
+<line x1="495" y1="74" x2="495" y2="146" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<text x="510" y="118" font-size="11" fill="#5a6070" font-weight="700" text-anchor="start">HTTPS</text>
+<rect x="40" y="148" width="660" height="112" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="54" y="172" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Web application</text>
+<text x="54" y="189" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">Python · FastAPI · server-rendered pages (Jinja2)</text>
+<text x="54" y="206" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Sign-in and sessions · a role check on every page · recordings served only to allowed users</text>
+<text x="54" y="223" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Teacher: lessons, exercises and tiers, students, review and approve, model management</text>
+<text x="54" y="240" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Student: assigned lessons, record an attempt, read approved feedback</text>
+<rect x="40" y="292" width="660" height="168" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="54" y="316" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Background tasks</text><text x="54" y="333" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">started when a recording is uploaded; the upload returns at once</text>
+<rect x="54" y="346" width="400" height="100" rx="8" fill="#ffffff" stroke="#d8dbe2" stroke-width="1.6"/>
+<text x="68" y="370" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Grading: the scoring pipeline</text>
+<text x="68" y="387" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">transcribe (ByteDance) → clean → teacher's phrases</text>
+<text x="68" y="404" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">→ align without warping → score at the tier</text>
+<text x="68" y="421" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">output: a per-phrase score vector, no composite</text>
+<rect x="468" y="346" width="218" height="100" rx="8" fill="#ffffff" stroke="#d8dbe2" stroke-width="1.6"/>
+<text x="482" y="370" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Drafting</text>
+<text x="482" y="387" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">every active model writes</text>
+<text x="482" y="404" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">feedback in parallel from</text>
+<text x="482" y="421" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">the score vector</text>
+<line x1="370" y1="262" x2="370" y2="290" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="454" y1="396" x2="466" y2="396" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<rect x="760" y="292" width="300" height="168" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="774" y="316" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Local model server</text>
+<text x="774" y="333" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">Ollama, quantized models</text>
+<text x="774" y="350" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">qwen2.5 3B · llama3.2 3B · gemma2 2B</text>
+<text x="774" y="367" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">gemma2 2B, fine-tuned (deployed)</text>
+<text x="774" y="384" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start"></text>
+<text x="774" y="401" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">serves drafts locally</text>
+<line x1="688" y1="420" x2="758" y2="420" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/><text x="723" y="440" font-size="11" fill="#15171c" font-weight="700" text-anchor="middle">drafts</text>
+<rect x="40" y="500" width="300" height="118" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="54" y="524" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">MySQL</text>
+<text x="54" y="541" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">relational records</text>
+<text x="54" y="558" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">users and roles</text>
+<text x="54" y="575" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">lessons, exercises, tiers</text>
+<text x="54" y="592" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">assignments, submissions, status</text>
+<rect x="360" y="500" width="340" height="118" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="374" y="524" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">MongoDB</text>
+<text x="374" y="541" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">scores, text and models</text>
+<text x="374" y="558" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">score vectors and model drafts</text>
+<text x="374" y="575" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">teacher's corrections = training data</text>
+<text x="374" y="592" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">model registry and leaderboard</text>
+<rect x="720" y="500" width="340" height="118" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="734" y="524" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Audio storage</text>
+<text x="734" y="541" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">files</text>
+<text x="734" y="558" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">student recordings</text>
+<text x="734" y="575" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">teachers' reference recordings</text>
+<text x="734" y="592" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">local disk, or an object store (MinIO)</text>
+<line x1="190" y1="462" x2="190" y2="498" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<line x1="470" y1="462" x2="470" y2="498" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<path d="M 640 462 L 640 482 L 850 482 L 850 496" fill="none" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)"/>
+<rect x="760" y="148" width="300" height="112" rx="8" fill="#ffffff" stroke="#2f62b8" stroke-width="1.6"/>
+<text x="774" y="172" font-size="14.5" fill="#2f62b8" font-weight="700" text-anchor="start">Evaluation harness (offline)</text>
+<text x="774" y="189" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">command-line tool (ptev)</text>
+<text x="774" y="206" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">reuses the app's grader · own _eval databases</text>
+<text x="774" y="223" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">mistake ledger → checks → training data</text>
+<text x="774" y="240" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">QLoRA fine-tuning on one GPU</text>
+<line x1="910" y1="262" x2="910" y2="290" stroke="#2f62b8" stroke-width="1.6" marker-end="url(#aB)"/><text x="918" y="280" font-size="11" fill="#2f62b8" font-weight="700" text-anchor="start">tuned model registered</text>
+<text x="36" y="668" font-size="12" fill="#5a6070" font-weight="400" text-anchor="start" font-style="italic">Arrows show the main data flows. The dashed boundary is the trust boundary: recordings, scores and feedback never leave it.</text>
+</svg>

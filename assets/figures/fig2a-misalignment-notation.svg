@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" width="1100" height="650" font-family="Helvetica, Arial, sans-serif">
+<title>Figure 3a. Six kinds of misalignment, in musical notation</title>
+<desc>Six panels, each with the teacher's bar of music above the student's. Differences are in amber: a late start (rest), an extra note, a missing note, a note held too long, a note cut short, and an extra rest.</desc>
+<rect width="1100" height="650" fill="#ffffff"/>
+<text x="25.0" y="34.0" font-size="13" fill="#5a6070" font-weight="400" text-anchor="start">Teacher's bar above, the student's attempt below. Differences in amber.</text>
+<rect x="25" y="64" width="340" height="265" rx="8" fill="#f4f5f7" stroke="#d8dbe2"/>
+<circle cx="47" cy="88" r="11" fill="#15171c"/><text x="47.0" y="92.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+<text x="67.0" y="93.0" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Different starting time</text>
+<text x="167.0" y="258.0" font-size="10.5" fill="#b86e00" font-weight="700" text-anchor="middle">late start</text>
+<line x1="97" y1="166" x2="349" y2="166" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="156" x2="349" y2="156" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="146" x2="349" y2="146" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="136" x2="349" y2="136" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="126" x2="349" y2="126" stroke="#5a6070" stroke-width="1"/>
+<text x="99.0" y="174.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="87.0" y="151.0" font-size="11" fill="#b0243b" font-weight="700" text-anchor="end">teacher</text>
+<line x1="156.8" y1="176.0" x2="177.2" y2="176.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="167.0" cy="176.0" rx="6.2" ry="4.5" transform="rotate(-22 167.0 176.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="172.4" y1="175.0" x2="172.4" y2="142.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="204.8" y1="176.0" x2="225.2" y2="176.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="215.0" cy="176.0" rx="6.2" ry="4.5" transform="rotate(-22 215.0 176.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="220.4" y1="175.0" x2="220.4" y2="142.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="263.0" cy="156.0" rx="6.2" ry="4.5" transform="rotate(-22 263.0 156.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="268.4" y1="155.0" x2="268.4" y2="122.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="311.0" cy="156.0" rx="6.2" ry="4.5" transform="rotate(-22 311.0 156.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="316.4" y1="155.0" x2="316.4" y2="122.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="343" y1="126" x2="343" y2="166" stroke="#15171c" stroke-width="1"/>
+<line x1="347" y1="126" x2="347" y2="166" stroke="#15171c" stroke-width="3"/>
+<line x1="97" y1="236" x2="349" y2="236" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="226" x2="349" y2="226" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="216" x2="349" y2="216" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="206" x2="349" y2="206" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="196" x2="349" y2="196" stroke="#5a6070" stroke-width="1"/>
+<text x="99.0" y="244.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="87.0" y="221.0" font-size="11" fill="#15171c" font-weight="700" text-anchor="end">student</text>
+<text x="167.0" y="227.0" font-size="34.0" fill="#b86e00" font-weight="400" text-anchor="middle" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄽</text>
+<line x1="204.8" y1="246.0" x2="225.2" y2="246.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="215.0" cy="246.0" rx="6.2" ry="4.5" transform="rotate(-22 215.0 246.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="220.4" y1="245.0" x2="220.4" y2="212.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="252.8" y1="246.0" x2="273.2" y2="246.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="263.0" cy="246.0" rx="6.2" ry="4.5" transform="rotate(-22 263.0 246.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="268.4" y1="245.0" x2="268.4" y2="212.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="311.0" cy="226.0" rx="6.2" ry="4.5" transform="rotate(-22 311.0 226.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="316.4" y1="225.0" x2="316.4" y2="192.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="343" y1="196" x2="343" y2="236" stroke="#15171c" stroke-width="1"/>
+<line x1="347" y1="196" x2="347" y2="236" stroke="#15171c" stroke-width="3"/>
+<line x1="39" y1="270" x2="351" y2="270" stroke="#d8dbe2"/>
+<text x="41.0" y="292.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">One constant shift anchors the first</text>
+<text x="41.0" y="310.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">notes; nothing else changes.</text>
+<rect x="380" y="64" width="340" height="265" rx="8" fill="#f4f5f7" stroke="#d8dbe2"/>
+<circle cx="402" cy="88" r="11" fill="#15171c"/><text x="402.0" y="92.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+<text x="422.0" y="93.0" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Extra note</text>
+<text x="642.0" y="258.0" font-size="10.5" fill="#b86e00" font-weight="700" text-anchor="middle">+ E</text>
+<line x1="452" y1="166" x2="704" y2="166" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="156" x2="704" y2="156" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="146" x2="704" y2="146" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="136" x2="704" y2="136" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="126" x2="704" y2="126" stroke="#5a6070" stroke-width="1"/>
+<text x="454.0" y="174.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="442.0" y="151.0" font-size="11" fill="#b0243b" font-weight="700" text-anchor="end">teacher</text>
+<line x1="511.8" y1="176.0" x2="532.2" y2="176.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="522.0" cy="176.0" rx="6.2" ry="4.5" transform="rotate(-22 522.0 176.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="527.4" y1="175.0" x2="527.4" y2="142.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="559.8" y1="176.0" x2="580.2" y2="176.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="570.0" cy="176.0" rx="6.2" ry="4.5" transform="rotate(-22 570.0 176.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="575.4" y1="175.0" x2="575.4" y2="142.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="618.0" cy="156.0" rx="6.2" ry="4.5" transform="rotate(-22 618.0 156.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="623.4" y1="155.0" x2="623.4" y2="122.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="666.0" cy="156.0" rx="6.2" ry="4.5" transform="rotate(-22 666.0 156.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="671.4" y1="155.0" x2="671.4" y2="122.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="698" y1="126" x2="698" y2="166" stroke="#15171c" stroke-width="1"/>
+<line x1="702" y1="126" x2="702" y2="166" stroke="#15171c" stroke-width="3"/>
+<line x1="452" y1="236" x2="704" y2="236" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="226" x2="704" y2="226" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="216" x2="704" y2="216" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="206" x2="704" y2="206" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="196" x2="704" y2="196" stroke="#5a6070" stroke-width="1"/>
+<text x="454.0" y="244.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="442.0" y="221.0" font-size="11" fill="#15171c" font-weight="700" text-anchor="end">student</text>
+<line x1="511.8" y1="246.0" x2="532.2" y2="246.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="522.0" cy="246.0" rx="6.2" ry="4.5" transform="rotate(-22 522.0 246.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="527.4" y1="245.0" x2="527.4" y2="212.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="559.8" y1="246.0" x2="580.2" y2="246.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="570.0" cy="246.0" rx="6.2" ry="4.5" transform="rotate(-22 570.0 246.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="575.4" y1="245.0" x2="575.4" y2="212.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="618.0" cy="226.0" rx="6.2" ry="4.5" transform="rotate(-22 618.0 226.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="623.4" y1="225.0" x2="623.4" y2="192.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="642.0" cy="236.0" rx="6.2" ry="4.5" transform="rotate(-22 642.0 236.0)" fill="#b86e00" stroke="#b86e00" stroke-width="0.8"/>
+<line x1="647.4" y1="235.0" x2="647.4" y2="202.0" stroke="#b86e00" stroke-width="1.2"/>
+<path d="M647.4,202.0 q 2.0,10.0 9.5,15.0 q -1.0,-6.0 -9.5,-11.0 z" fill="#b86e00"/>
+<ellipse cx="672.0" cy="226.0" rx="6.2" ry="4.5" transform="rotate(-22 672.0 226.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="677.4" y1="225.0" x2="677.4" y2="192.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="698" y1="196" x2="698" y2="236" stroke="#15171c" stroke-width="1"/>
+<line x1="702" y1="196" x2="702" y2="236" stroke="#15171c" stroke-width="3"/>
+<line x1="394" y1="270" x2="706" y2="270" stroke="#d8dbe2"/>
+<text x="396.0" y="292.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Lowers pitch precision; matching</text>
+<text x="396.0" y="310.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">keeps the other notes paired.</text>
+<rect x="735" y="64" width="340" height="265" rx="8" fill="#f4f5f7" stroke="#d8dbe2"/>
+<circle cx="757" cy="88" r="11" fill="#15171c"/><text x="757.0" y="92.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+<text x="777.0" y="93.0" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Missing note</text>
+<text x="973.0" y="258.0" font-size="10.5" fill="#b86e00" font-weight="700" text-anchor="middle">missing</text>
+<line x1="807" y1="166" x2="1059" y2="166" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="156" x2="1059" y2="156" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="146" x2="1059" y2="146" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="136" x2="1059" y2="136" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="126" x2="1059" y2="126" stroke="#5a6070" stroke-width="1"/>
+<text x="809.0" y="174.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="797.0" y="151.0" font-size="11" fill="#b0243b" font-weight="700" text-anchor="end">teacher</text>
+<line x1="866.8" y1="176.0" x2="887.2" y2="176.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="877.0" cy="176.0" rx="6.2" ry="4.5" transform="rotate(-22 877.0 176.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="882.4" y1="175.0" x2="882.4" y2="142.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="914.8" y1="176.0" x2="935.2" y2="176.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="925.0" cy="176.0" rx="6.2" ry="4.5" transform="rotate(-22 925.0 176.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="930.4" y1="175.0" x2="930.4" y2="142.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="973.0" cy="156.0" rx="6.2" ry="4.5" transform="rotate(-22 973.0 156.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="978.4" y1="155.0" x2="978.4" y2="122.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="1021.0" cy="156.0" rx="6.2" ry="4.5" transform="rotate(-22 1021.0 156.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="1026.4" y1="155.0" x2="1026.4" y2="122.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="1053" y1="126" x2="1053" y2="166" stroke="#15171c" stroke-width="1"/>
+<line x1="1057" y1="126" x2="1057" y2="166" stroke="#15171c" stroke-width="3"/>
+<line x1="807" y1="236" x2="1059" y2="236" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="226" x2="1059" y2="226" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="216" x2="1059" y2="216" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="206" x2="1059" y2="206" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="196" x2="1059" y2="196" stroke="#5a6070" stroke-width="1"/>
+<text x="809.0" y="244.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="797.0" y="221.0" font-size="11" fill="#15171c" font-weight="700" text-anchor="end">student</text>
+<line x1="866.8" y1="246.0" x2="887.2" y2="246.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="877.0" cy="246.0" rx="6.2" ry="4.5" transform="rotate(-22 877.0 246.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="882.4" y1="245.0" x2="882.4" y2="212.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="914.8" y1="246.0" x2="935.2" y2="246.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="925.0" cy="246.0" rx="6.2" ry="4.5" transform="rotate(-22 925.0 246.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="930.4" y1="245.0" x2="930.4" y2="212.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="973.0" cy="226.0" rx="6.2" ry="4.5" transform="rotate(-22 973.0 226.0)" fill="none" stroke="#b86e00" stroke-width="1.6" stroke-dasharray="2.5 2"/>
+<line x1="978.4" y1="225.0" x2="978.4" y2="192.0" stroke="#b86e00" stroke-width="1.2" stroke-dasharray="2.5 2"/>
+<ellipse cx="1021.0" cy="226.0" rx="6.2" ry="4.5" transform="rotate(-22 1021.0 226.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="1026.4" y1="225.0" x2="1026.4" y2="192.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="1053" y1="196" x2="1053" y2="236" stroke="#15171c" stroke-width="1"/>
+<line x1="1057" y1="196" x2="1057" y2="236" stroke="#15171c" stroke-width="3"/>
+<line x1="749" y1="270" x2="1061" y2="270" stroke="#d8dbe2"/>
+<text x="751.0" y="292.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Lowers pitch recall and order;</text>
+<text x="751.0" y="310.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">the rest of the phrase still matches.</text>
+<rect x="25" y="344" width="340" height="265" rx="8" fill="#f4f5f7" stroke="#d8dbe2"/>
+<circle cx="47" cy="368" r="11" fill="#15171c"/><text x="47.0" y="372.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+<text x="67.0" y="373.0" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Stretched note</text>
+<text x="279.0" y="538.0" font-size="10.5" fill="#b86e00" font-weight="700" text-anchor="middle">held too long</text>
+<line x1="97" y1="446" x2="349" y2="446" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="436" x2="349" y2="436" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="426" x2="349" y2="426" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="416" x2="349" y2="416" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="406" x2="349" y2="406" stroke="#5a6070" stroke-width="1"/>
+<text x="99.0" y="454.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="87.0" y="431.0" font-size="11" fill="#b0243b" font-weight="700" text-anchor="end">teacher</text>
+<line x1="156.8" y1="456.0" x2="177.2" y2="456.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="167.0" cy="456.0" rx="6.2" ry="4.5" transform="rotate(-22 167.0 456.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="172.4" y1="455.0" x2="172.4" y2="422.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="204.8" y1="456.0" x2="225.2" y2="456.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="215.0" cy="456.0" rx="6.2" ry="4.5" transform="rotate(-22 215.0 456.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="220.4" y1="455.0" x2="220.4" y2="422.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="263.0" cy="436.0" rx="6.2" ry="4.5" transform="rotate(-22 263.0 436.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="268.4" y1="435.0" x2="268.4" y2="402.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="311.0" cy="436.0" rx="6.2" ry="4.5" transform="rotate(-22 311.0 436.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="316.4" y1="435.0" x2="316.4" y2="402.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="343" y1="406" x2="343" y2="446" stroke="#15171c" stroke-width="1"/>
+<line x1="347" y1="406" x2="347" y2="446" stroke="#15171c" stroke-width="3"/>
+<line x1="97" y1="516" x2="349" y2="516" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="506" x2="349" y2="506" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="496" x2="349" y2="496" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="486" x2="349" y2="486" stroke="#5a6070" stroke-width="1"/>
+<line x1="97" y1="476" x2="349" y2="476" stroke="#5a6070" stroke-width="1"/>
+<text x="99.0" y="524.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="87.0" y="501.0" font-size="11" fill="#15171c" font-weight="700" text-anchor="end">student</text>
+<line x1="156.8" y1="526.0" x2="177.2" y2="526.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="167.0" cy="526.0" rx="6.2" ry="4.5" transform="rotate(-22 167.0 526.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="172.4" y1="525.0" x2="172.4" y2="492.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="204.8" y1="526.0" x2="225.2" y2="526.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="215.0" cy="526.0" rx="6.2" ry="4.5" transform="rotate(-22 215.0 526.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="220.4" y1="525.0" x2="220.4" y2="492.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="263.0" cy="506.0" rx="6.2" ry="4.5" transform="rotate(-22 263.0 506.0)" fill="none" stroke="#b86e00" stroke-width="1.6"/>
+<line x1="268.4" y1="505.0" x2="268.4" y2="472.0" stroke="#b86e00" stroke-width="1.2"/>
+<line x1="343" y1="476" x2="343" y2="516" stroke="#15171c" stroke-width="1"/>
+<line x1="347" y1="476" x2="347" y2="516" stroke="#15171c" stroke-width="3"/>
+<line x1="39" y1="550" x2="351" y2="550" stroke="#d8dbe2"/>
+<text x="41.0" y="572.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Tier 3 only (duration, timing);</text>
+<text x="41.0" y="590.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">pitch and order are unaffected.</text>
+<rect x="380" y="344" width="340" height="265" rx="8" fill="#f4f5f7" stroke="#d8dbe2"/>
+<circle cx="402" cy="368" r="11" fill="#15171c"/><text x="402.0" y="372.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">5</text>
+<text x="422.0" y="373.0" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Compressed note</text>
+<text x="628.0" y="538.0" font-size="10.5" fill="#b86e00" font-weight="700" text-anchor="middle">cut short</text>
+<line x1="452" y1="446" x2="704" y2="446" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="436" x2="704" y2="436" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="426" x2="704" y2="426" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="416" x2="704" y2="416" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="406" x2="704" y2="406" stroke="#5a6070" stroke-width="1"/>
+<text x="454.0" y="454.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="442.0" y="431.0" font-size="11" fill="#b0243b" font-weight="700" text-anchor="end">teacher</text>
+<line x1="511.8" y1="456.0" x2="532.2" y2="456.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="522.0" cy="456.0" rx="6.2" ry="4.5" transform="rotate(-22 522.0 456.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="527.4" y1="455.0" x2="527.4" y2="422.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="559.8" y1="456.0" x2="580.2" y2="456.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="570.0" cy="456.0" rx="6.2" ry="4.5" transform="rotate(-22 570.0 456.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="575.4" y1="455.0" x2="575.4" y2="422.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="618.0" cy="436.0" rx="6.2" ry="4.5" transform="rotate(-22 618.0 436.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="623.4" y1="435.0" x2="623.4" y2="402.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="666.0" cy="436.0" rx="6.2" ry="4.5" transform="rotate(-22 666.0 436.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="671.4" y1="435.0" x2="671.4" y2="402.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="698" y1="406" x2="698" y2="446" stroke="#15171c" stroke-width="1"/>
+<line x1="702" y1="406" x2="702" y2="446" stroke="#15171c" stroke-width="3"/>
+<line x1="452" y1="516" x2="704" y2="516" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="506" x2="704" y2="506" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="496" x2="704" y2="496" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="486" x2="704" y2="486" stroke="#5a6070" stroke-width="1"/>
+<line x1="452" y1="476" x2="704" y2="476" stroke="#5a6070" stroke-width="1"/>
+<text x="454.0" y="524.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="442.0" y="501.0" font-size="11" fill="#15171c" font-weight="700" text-anchor="end">student</text>
+<line x1="511.8" y1="526.0" x2="532.2" y2="526.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="522.0" cy="526.0" rx="6.2" ry="4.5" transform="rotate(-22 522.0 526.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="527.4" y1="525.0" x2="527.4" y2="492.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="559.8" y1="526.0" x2="580.2" y2="526.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="570.0" cy="526.0" rx="6.2" ry="4.5" transform="rotate(-22 570.0 526.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="575.4" y1="525.0" x2="575.4" y2="492.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="618.0" cy="506.0" rx="6.2" ry="4.5" transform="rotate(-22 618.0 506.0)" fill="#b86e00" stroke="#b86e00" stroke-width="0.8"/>
+<line x1="623.4" y1="505.0" x2="623.4" y2="472.0" stroke="#b86e00" stroke-width="1.2"/>
+<path d="M623.4,472.0 q 2.0,10.0 9.5,15.0 q -1.0,-6.0 -9.5,-11.0 z" fill="#b86e00"/>
+<text x="644.0" y="507.0" font-size="34.0" fill="#b86e00" font-weight="400" text-anchor="middle" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄾</text>
+<ellipse cx="666.0" cy="506.0" rx="6.2" ry="4.5" transform="rotate(-22 666.0 506.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="671.4" y1="505.0" x2="671.4" y2="472.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="698" y1="476" x2="698" y2="516" stroke="#15171c" stroke-width="1"/>
+<line x1="702" y1="476" x2="702" y2="516" stroke="#15171c" stroke-width="3"/>
+<line x1="394" y1="550" x2="706" y2="550" stroke="#d8dbe2"/>
+<text x="396.0" y="572.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Tier 3 only (duration, timing);</text>
+<text x="396.0" y="590.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">pitch and order are unaffected.</text>
+<rect x="735" y="344" width="340" height="265" rx="8" fill="#f4f5f7" stroke="#d8dbe2"/>
+<circle cx="757" cy="368" r="11" fill="#15171c"/><text x="757.0" y="372.5" font-size="12" fill="#ffffff" font-weight="700" text-anchor="middle">6</text>
+<text x="777.0" y="373.0" font-size="14.5" fill="#15171c" font-weight="700" text-anchor="start">Wrong rest between notes</text>
+<text x="999.0" y="538.0" font-size="10.5" fill="#b86e00" font-weight="700" text-anchor="middle">extra rest</text>
+<line x1="807" y1="446" x2="1059" y2="446" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="436" x2="1059" y2="436" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="426" x2="1059" y2="426" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="416" x2="1059" y2="416" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="406" x2="1059" y2="406" stroke="#5a6070" stroke-width="1"/>
+<text x="809.0" y="454.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="797.0" y="431.0" font-size="11" fill="#b0243b" font-weight="700" text-anchor="end">teacher</text>
+<line x1="866.8" y1="456.0" x2="887.2" y2="456.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="877.0" cy="456.0" rx="6.2" ry="4.5" transform="rotate(-22 877.0 456.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="882.4" y1="455.0" x2="882.4" y2="422.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="914.8" y1="456.0" x2="935.2" y2="456.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="925.0" cy="456.0" rx="6.2" ry="4.5" transform="rotate(-22 925.0 456.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="930.4" y1="455.0" x2="930.4" y2="422.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="973.0" cy="436.0" rx="6.2" ry="4.5" transform="rotate(-22 973.0 436.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="978.4" y1="435.0" x2="978.4" y2="402.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="1021.0" cy="436.0" rx="6.2" ry="4.5" transform="rotate(-22 1021.0 436.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="1026.4" y1="435.0" x2="1026.4" y2="402.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="1053" y1="406" x2="1053" y2="446" stroke="#15171c" stroke-width="1"/>
+<line x1="1057" y1="406" x2="1057" y2="446" stroke="#15171c" stroke-width="3"/>
+<line x1="807" y1="516" x2="1059" y2="516" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="506" x2="1059" y2="506" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="496" x2="1059" y2="496" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="486" x2="1059" y2="486" stroke="#5a6070" stroke-width="1"/>
+<line x1="807" y1="476" x2="1059" y2="476" stroke="#5a6070" stroke-width="1"/>
+<text x="809.0" y="524.5" font-size="56.0" fill="#15171c" font-weight="400" text-anchor="start" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄞</text>
+<text x="797.0" y="501.0" font-size="11" fill="#15171c" font-weight="700" text-anchor="end">student</text>
+<line x1="866.8" y1="526.0" x2="887.2" y2="526.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="877.0" cy="526.0" rx="6.2" ry="4.5" transform="rotate(-22 877.0 526.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="882.4" y1="525.0" x2="882.4" y2="492.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="914.8" y1="526.0" x2="935.2" y2="526.0" stroke="#15171c" stroke-width="1.1"/>
+<ellipse cx="925.0" cy="526.0" rx="6.2" ry="4.5" transform="rotate(-22 925.0 526.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="930.4" y1="525.0" x2="930.4" y2="492.0" stroke="#15171c" stroke-width="1.2"/>
+<ellipse cx="973.0" cy="506.0" rx="6.2" ry="4.5" transform="rotate(-22 973.0 506.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="978.4" y1="505.0" x2="978.4" y2="472.0" stroke="#15171c" stroke-width="1.2"/>
+<text x="999.0" y="507.0" font-size="34.0" fill="#b86e00" font-weight="400" text-anchor="middle" font-family="'Noto Music','Segoe UI Symbol','Apple Symbols','Bravura',serif">𝄽</text>
+<ellipse cx="1039.0" cy="506.0" rx="6.2" ry="4.5" transform="rotate(-22 1039.0 506.0)" fill="#15171c" stroke="#15171c" stroke-width="0.8"/>
+<line x1="1044.4" y1="505.0" x2="1044.4" y2="472.0" stroke="#15171c" stroke-width="1.2"/>
+<line x1="1053" y1="476" x2="1053" y2="516" stroke="#15171c" stroke-width="1"/>
+<line x1="1057" y1="476" x2="1057" y2="516" stroke="#15171c" stroke-width="3"/>
+<line x1="749" y1="550" x2="1061" y2="550" stroke="#d8dbe2"/>
+<text x="751.0" y="572.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">Tier 3 only (timing); tiers 1 and 2</text>
+<text x="751.0" y="590.0" font-size="12.5" fill="#15171c" font-weight="400" text-anchor="start">score it as correct playing.</text>
+<text x="25.0" y="636.0" font-size="12.5" fill="#5a6070" font-weight="400" text-anchor="start" font-style="italic">The same six cases as the system reads them are shown in Figure 3b.</text>
+</svg>

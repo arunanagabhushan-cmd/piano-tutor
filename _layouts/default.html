@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if page.title %}{{ page.title }} · {% endif %}Piano-Tutor App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<!--
+  Layout for Markdown pages (report.md -> report.html). GitHub Pages applies it
+  automatically: edit the .md file, push, and the page is rebuilt in this style.
+  Colors and fonts are the same tokens as index.html.
+-->
+<style>
+:root{
+  --bg:#f4f5f7; --surface:#ffffff; --fg:#15171c; --muted:#5a6070; --line:#d8dbe2;
+  --felt:#b0243b; --slip:#b86e00; --code:#eef0f3;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121418; --surface:#1a1d23; --fg:#eceef2; --muted:#9aa0ad; --line:#2c3038;
+    --felt:#e0566b; --slip:#e3a33c; --code:#22262d; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121418; --surface:#1a1d23; --fg:#eceef2; --muted:#9aa0ad; --line:#2c3038;
+  --felt:#e0566b; --slip:#e3a33c; --code:#22262d; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0625rem/1.65 var(--body);padding-inline:16px}
+.bar{max-width:48rem;margin:0 auto;padding-block:20px 0;display:flex;justify-content:space-between;gap:16px;font-size:.875rem}
+.bar a{color:var(--muted);text-decoration:none}
+.bar a:hover{color:var(--fg)}
+main{max-width:48rem;margin:0 auto;padding-block:28px 64px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:500;line-height:1.2;text-wrap:balance;scroll-margin-top:16px}
+h1{font-size:clamp(1.9rem,4.5vw,2.6rem);margin:0 0 .6em}
+h2{font-size:1.75rem;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line)}
+h3{font-size:1.3rem;margin:1.8em 0 .5em}
+h4{font-size:1.1rem;margin:1.5em 0 .4em}
+p,ul,ol{margin:0 0 1em}
+li{margin:.25em 0}
+a{color:var(--felt)}
+strong{font-weight:600}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+blockquote{margin:1.2em 0;padding:.2em 0 .2em 1em;border-left:3px solid var(--slip);font-style:italic}
+code{font-family:var(--mono);font-size:.86em;background:var(--code);padding:.1em .3em;border-radius:4px}
+pre{background:var(--code);border-left:3px solid var(--felt);border-radius:6px;padding:12px 14px;overflow-x:auto;line-height:1.45}
+pre code{background:none;padding:0;font-size:.8rem}
+/* kramdown wraps fenced code in div.highlight; keep it plain */
+.highlight{background:none}
+.highlight pre{margin:0 0 1.2em}
+table{display:block;overflow-x:auto;border-collapse:collapse;margin:0 0 1.4em;font-size:.9rem;max-width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{border-bottom:2px solid var(--fg);font-weight:600}
+img{max-width:100%;height:auto}
+/* A figure is a paragraph holding only an image; the italic paragraph after it is the caption. */
+p:has(> img:only-child){background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center;margin:1.6em 0 .5em}
+p:has(> img:only-child) + p{font-size:.9rem;color:var(--muted);margin-bottom:1.8em}
+footer{max-width:48rem;margin:0 auto;padding-block:20px 32px;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Site"><a href="index.html">← Piano‑Tutor App</a><span><a href="slides.html">Presentation</a> · <a href="walkthrough.html">Walkthrough</a></span></nav>
+<main>
+{{ content }}
+</main>
+<footer>Piano Tutor · 2026 · Aruna Nagabhushan, Neuqua Valley High School · <a href="index.html">Back to the main page</a></footer>
+</body>
+</html>

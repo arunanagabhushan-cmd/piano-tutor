@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" font-family="Helvetica, Arial, sans-serif">
+<title>Submission status</title>
+<desc>Two separate status tracks. The AI processing state moves from not started to pending, then to ai_complete or ai_error, and to reviewed once the teacher saves. An exercise with no teacher recording ends in no_reference. The review outcome moves from submitted to approved or redo.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#15171c"/></marker><marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b0243b"/></marker><marker id="aB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2f62b8"/></marker></defs>
+<rect width="1000" height="300" fill="#ffffff"/>
+<text x="30" y="30" font-size="11.5" fill="#5a6070" font-weight="700" text-anchor="start">AI PROCESSING STATE</text>
+<rect x="30" y="48" width="150" height="54" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="105.0" y="74" font-size="14" fill="#15171c" font-weight="700" text-anchor="middle">not_started</text>
+<rect x="230" y="48" width="150" height="54" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="305.0" y="74" font-size="14" fill="#15171c" font-weight="700" text-anchor="middle">pending</text>
+<rect x="430" y="48" width="150" height="54" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="505.0" y="74" font-size="14" fill="#15171c" font-weight="700" text-anchor="middle">ai_complete</text>
+<rect x="630" y="48" width="150" height="54" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="705.0" y="74" font-size="14" fill="#15171c" font-weight="700" text-anchor="middle">reviewed</text>
+<line x1="182" y1="75.0" x2="228" y2="75.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="382" y1="75.0" x2="428" y2="75.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<line x1="582" y1="75.0" x2="628" y2="75.0" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="350" y="42" font-size="10.5" fill="#5a6070" font-weight="400" text-anchor="middle">grading and drafting</text>
+<text x="550" y="42" font-size="10.5" fill="#5a6070" font-weight="400" text-anchor="middle">teacher saves</text>
+<rect x="430" y="130" width="150" height="54" rx="8" fill="#fff8ee" stroke="#b86e00" stroke-width="1.6"/>
+<text x="505.0" y="156" font-size="14" fill="#b86e00" font-weight="700" text-anchor="middle">ai_error</text>
+<path d="M 305.0 104 L 305.0 157.0 L 428 157.0" fill="none" stroke="#b86e00" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M 582 157.0 L 705.0 157.0 L 705.0 104" fill="none" stroke="#15171c" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<text x="643" y="177.0" font-size="10.5" fill="#5a6070" font-weight="400" text-anchor="middle">teacher can still review</text>
+<rect x="820" y="48" width="150" height="54" rx="8" fill="#f4f5f7" stroke="#5a6070" stroke-width="1.6"/>
+<text x="895.0" y="74" font-size="14" fill="#5a6070" font-weight="700" text-anchor="middle">no_reference</text>
+<text x="895" y="118" font-size="10.5" fill="#5a6070" font-weight="400" text-anchor="middle">exercise has no teacher</text>
+<text x="895" y="132" font-size="10.5" fill="#5a6070" font-weight="400" text-anchor="middle">recording; not graded</text>
+<text x="30" y="212" font-size="11.5" fill="#5a6070" font-weight="700" text-anchor="start">REVIEW OUTCOME</text>
+<rect x="30" y="222" width="150" height="48" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="105.0" y="248" font-size="14" fill="#15171c" font-weight="700" text-anchor="middle">submitted</text>
+<rect x="330" y="222" width="150" height="48" rx="8" fill="#fbeef0" stroke="#b0243b" stroke-width="1.6"/>
+<text x="405.0" y="248" font-size="14" fill="#b0243b" font-weight="700" text-anchor="middle">approved</text>
+<rect x="530" y="222" width="150" height="48" rx="8" fill="#ffffff" stroke="#15171c" stroke-width="1.6"/>
+<text x="605.0" y="248" font-size="14" fill="#15171c" font-weight="700" text-anchor="middle">redo</text>
+<path d="M 182 246.0 L 328 246.0" fill="none" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<path d="M 255 246.0 L 255 284 L 605 284 L 605 272" fill="none" stroke="#15171c" stroke-width="1.6" marker-end="url(#a)"/>
+<text x="720" y="252" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">set when the teacher saves; a redo asks</text>
+<text x="720" y="268" font-size="11.5" fill="#5a6070" font-weight="400" text-anchor="start">the student for another attempt</text>
+</svg>

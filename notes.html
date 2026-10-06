@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Piano-Tutor App · Notes on the numbers</title>
+<meta name="description" content="How each headline figure on the Piano Tutor page was measured, and what it can and cannot show.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; each figure gets a numbered note with method and limits. */
+:root{
+  --bg:#f4f5f7; --surface:#ffffff; --fg:#15171c; --muted:#5a6070; --line:#d8dbe2; --felt:#b0243b;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121418;--surface:#1a1d23;--fg:#eceef2;--muted:#9aa0ad;--line:#2c3038;--felt:#e0566b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121418;--surface:#1a1d23;--fg:#eceef2;--muted:#9aa0ad;--line:#2c3038;--felt:#e0566b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.0625rem/1.65 var(--body)}
+.wrap{max-width:44rem;margin:0 auto;padding-inline:clamp(16px,4vw,40px);padding-block:24px 64px}
+a{color:var(--felt);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--felt);outline-offset:3px}
+h1,h2{font-family:var(--display);font-weight:500;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);margin-top:28px}
+h2{font-size:1.9rem}
+p{margin:0}
+.eyebrow{font:600 .75rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:1.2rem;line-height:1.5;margin-top:14px;color:var(--muted)}
+.back{font-size:.875rem}
+article{margin-top:48px;padding-top:32px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:14px;scroll-margin-top:24px}
+.fig{font:500 2.4rem/1 var(--display)}
+.fig small{font:600 .78rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--felt);display:block;margin-bottom:10px}
+h3{font:600 .8rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:10px 0 0}
+ul{margin:0;padding-left:1.2rem;display:grid;gap:6px}
+table{border-collapse:collapse;width:100%;font-size:.875rem;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+.scale{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font-size:.92rem}
+.scale div{display:grid;grid-template-columns:2rem 1fr;gap:8px}
+.scale b{font-family:var(--mono)}
+footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-size:.875rem;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← Back to Piano-Tutor App</a>
+  <h1>Notes on the numbers</h1>
+  <p class="lede">How each figure at the top of the main page was measured, and what it can and cannot show. All four come from the project's evaluation on generated practice attempts; none is yet measured on real children's recordings.</p>
+
+  <article id="notes-lost">
+    <p class="fig"><small>No notes lost</small>8 of 8</p>
+    <h3>What it measures</h3>
+    <p>How many of a student's notes reach the scoring step when the student plays slower than the teacher.</p>
+    <h3>How it was measured</h3>
+    <p>An eight-note exercise was played back at controlled speeds and scored before and after a fix to how phrases are matched in time. The first version kept the phrase windows fixed to the teacher's timing, so a slower student's last notes fell outside and were dropped before scoring.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Student's speed</th><th class="num">Notes kept, before</th><th class="num">After the fix</th></tr></thead>
+      <tbody>
+        <tr><td>0.80× the teacher</td><td class="num">8 / 8</td><td class="num">8 / 8</td></tr>
+        <tr><td>0.67×</td><td class="num">7 / 8</td><td class="num">8 / 8</td></tr>
+        <tr><td>0.50× (half speed)</td><td class="num">5 / 8</td><td class="num">8 / 8</td></tr>
+        <tr><td>0.33×</td><td class="num">4 / 8</td><td class="num">8 / 8</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Limits</h3>
+    <ul><li>A constructed test on one short exercise, chosen to expose the fault.</li><li>Real recordings add transcription noise, which this test does not include.</li></ul>
+  </article>
+
+  <article id="violations">
+    <p class="fig"><small>Made-up advice cut</small>239 → 3</p>
+    <h3>What it measures</h3>
+    <p>How often a model's draft criticized something the scores did not measure at that student's level: usually tempo or timing for a beginner, where speed is deliberately not scored.</p>
+    <h3>How it was measured</h3>
+    <p>Three small models each wrote feedback for all 186 generated practice attempts, 558 drafts in total. Automatic checks flagged every draft that criticized an unscored dimension, before and after the models were fine-tuned.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Model</th><th class="num">Before</th><th class="num">After</th></tr></thead>
+      <tbody>
+        <tr><td>gemma2 2B</td><td class="num">105</td><td class="num">0</td></tr>
+        <tr><td>llama3.2 3B</td><td class="num">69</td><td class="num">2</td></tr>
+        <tr><td>qwen2.5 3B</td><td class="num">65</td><td class="num">1</td></tr>
+        <tr><td><b>Total, of 558</b></td><td class="num"><b>239</b></td><td class="num"><b>3</b></td></tr>
+      </tbody>
+    </table></div>
+    <h3>Limits</h3>
+    <ul><li>Generated attempts, not real recordings.</li><li>The checks are pattern-based. Where they disagreed with a stronger AI judge on a sample, the judge was right, and the checks were tightened.</li></ul>
+  </article>
+
+  <article id="tone">
+    <p class="fig"><small>Kind, as a child hears it</small>32 of 33</p>
+    <h3>What it measures</h3>
+    <p>Whether the deployed model's feedback reads as warm and clear to a child.</p>
+    <h3>How it was measured</h3>
+    <p>A stronger AI model judged a shuffled, blinded sample of 135 drafts without knowing which model wrote each one. Of these, 33 came from the deployed model. Each draft was rated on five questions, one of which was <em>"Would a child hear this as encouraging and clear?"</em>, on this scale:</p>
+    <div class="scale">
+      <div><b>3</b><span>Warm, plain and encouraging throughout.</span></div>
+      <div><b>2</b><span>Friendly, with a stiff phrase or two.</span></div>
+      <div><b>1</b><span>Flat or clinical; technically fine but discouraging.</span></div>
+      <div><b>0</b><span>Harsh, or full of jargon a beginner would not follow.</span></div>
+    </div>
+    <p>32 of the 33 drafts received a 3, and one received a 2, an average of 2.97 out of 3.</p>
+    <h3>Why kindness alone is not enough</h3>
+    <p>The sample also contained deliberate decoys: warm, well-written feedback attached to the <em>wrong</em> performance. They scored a perfect 3 on tone but only 0.50 out of 3 on accuracy. Kind words are easy; kind words that are also true are what the training achieved. The deployed model scored 2.67 out of 3 on accuracy, against 2.88 for the reference texts.</p>
+    <h3>Limits</h3>
+    <ul><li>One judging round, by one AI judge, on 33 drafts.</li><li>The drafts mix practice attempts the model was trained on with ones it had not seen.</li><li>Tone was judged by a model, not by children or parents. Asking them is a planned next step.</li></ul>
+  </article>
+
+  <article id="local">
+    <p class="fig"><small>Private by design</small>0</p>
+    <h3>What it means</h3>
+    <p>No outside service is used to transcribe, score or write feedback. The transcription model, the grader and the language models all run within the teacher's account, and children's recordings, scores and feedback stay on the teacher's account.</p>
+    <h3>One exception, during research only</h3>
+    <p>To evaluate the models, a sample of <em>generated</em> practice feedback was judged by a stronger AI model in a separate chat. That sample came from simulated students only. No child's recording or feedback was part of it.</p>
+  </article>
+
+  <footer>Piano Tutor · 2026 · Aruna Nagabhushan, Neuqua Valley High School · <a href="index.html">Back to the main page</a></footer>
+</div>
+</body>
+</html>
