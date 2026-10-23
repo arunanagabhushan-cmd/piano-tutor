@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Piano-Tutor App</title>
+<title>Music Modeler – a piano tutor app</title>
 <meta name="description" content="A scoring pipeline and teacher-approved language models that turn children's piano practice recordings into short, encouraging feedback.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -216,12 +216,13 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media (min-width:1000px){.loop{grid-template-columns:repeat(6,1fr)}}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:480px){.tier{grid-template-columns:3.4rem 1fr}}
+.h1sub{display:block;font-size:.4em;line-height:1.2;font-style:italic;color:var(--muted);margin-top:.3em;letter-spacing:0}
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="top">
-    <div class="brand">Piano&#8209;Tutor App</div>
+    <div class="brand">Music Modeler</div>
     <nav aria-label="Sections">
       <a href="#how">How it works</a><a href="#architecture">Architecture</a><a href="#pipeline">Scoring</a><a href="#models">Language models</a><a href="#tools">Teacher's tools</a><a href="walkthrough.html">Walkthrough</a><a href="slides.html">Presentation</a><a href="report.html">Report</a><a href="#field">Compared</a><a href="#beyond">Beyond piano</a><a href="#read">Read more</a>
     </nav>
@@ -230,11 +231,11 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <div class="hero">
     <div class="stack">
       <span class="eyebrow">Children's practice feedback · runs locally · teacher approves</span>
-      <h1>Piano&#8209;Tutor App</h1>
+      <h1>Music Modeler<span class="h1sub">a piano tutor app</span></h1>
       <p class="tagline">From notes <em>to kind words.</em></p>
       <p class="doctitle">A Tiered&#8209;Scoring Pipeline and Teacher&#8209;tailored Language Models to provide encouraging feedback to students based on their piano practice</p>
       <p class="byline">By <strong>Aruna Nagabhushan</strong>, <strong>Neuqua Valley High School</strong>, Naperville, IL<br>Summer Internship 2026, <strong>Vanderbilt University</strong><br>Under the guidance of <strong>Dr. Aniruddha Gokhale</strong>, <strong>Dr. Himanshu Neema</strong> and <strong>Dr. Yogesh Barve</strong>, <strong>Vanderbilt University</strong></p>
-      <p class="lede prose">Children practice piano alone between lessons, and a mistake practiced all week gets learned. Piano Tutor scores each practice recording against the teacher's own recording, phrase by phrase. Small language models running within the teacher's account then turn the scores into short, encouraging feedback, and the teacher approves every word before the child sees it.</p>
+      <p class="lede prose">Children practice piano alone between lessons, and a mistake practiced all week gets learned. Music Modeler scores each practice recording against the teacher's own recording, phrase by phrase. Small language models running within the teacher's account then turn the scores into short, encouraging feedback, and the teacher approves every word before the child sees it.</p>
     </div>
 
     <figure class="roll card dual">
@@ -429,19 +430,19 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section id="failure">
     <div class="split">
       <figure class="shot">
-        <img src="assets/auth-14-tutor-ai-review-5.png" alt="The teacher's review screen: a student's recording, seven score bars and three model drafts side by side." width="1280" height="1139" loading="lazy">
-        <figcaption>The teacher's review screen for a tier-3 attempt. Timing 1.00; tempo 1.12× the teacher's, below the threshold for a flag.</figcaption>
+        <img src="assets/auth-14-tutor-ai-review-5.png" alt="The teacher's review screen: a student's recording, four score bars, the fine-tuned draft and three off-the-shelf drafts." width="1280" height="1469" loading="lazy">
+        <figcaption>The teacher's review screen for a tier-2 attempt with one note missed in each phrase. Timing isn't scored at tier 2.</figcaption>
       </figure>
       <div class="stack">
         <span class="eyebrow">What prompting couldn't fix</span>
         <h2>Warm, but making things up</h2>
-        <p>The scores show a few missed notes, perfectly even timing, and no tempo flag. All three off-the-shelf models still commented on speed or timing:</p>
+        <p>The scores show one missed note in each phrase, and nothing else. The three off-the-shelf models still got things wrong:</p>
         <div class="callouts">
-          <div class="callout"><span class="who">llama</span><span>"The second section … is slightly slower than expected."</span></div>
-          <div class="callout"><span class="who">qwen</span><span>"In the second section, you rushed a bit."</span></div>
-          <div class="callout"><span class="who">gemma</span><span>"…could be smoother in terms of timing."</span></div>
+          <div class="callout"><span class="who">gemma</span><span>"The second section needs some more focus on timing… use a metronome." Timing isn't scored at this tier.</span></div>
+          <div class="callout"><span class="who">qwen</span><span>"Make sure you are hitting the final note clearly." The missed note was not the last one.</span></div>
+          <div class="callout"><span class="who">llama</span><span>"In the first phrase, you got every note right in terms of order." Order scored 0.80.</span></div>
         </div>
-        <p class="muted small">Across 186 cases the base models did this 34–58% of the time at beginner tiers where tempo isn't scored at all. Rewording the prompt didn't change it. When a real tempo flag was present they reported it 17 times out of 18. The problem is volunteering advice nobody measured.</p>
+        <p class="muted small">Across 186 cases the base models volunteered timing or speed advice 34–58% of the time at beginner tiers where tempo isn't scored at all. Rewording the prompt didn't change it. When a real tempo flag was present they reported it 17 times out of 18. The problem is volunteering advice nobody measured.</p>
       </div>
     </div>
   </section>
@@ -530,7 +531,7 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     </div>
     <div class="shots">
       <figure class="shot">
-        <img src="assets/auth-12-tutor-exercises.png" alt="The teacher's exercise list with tiers and reference recordings." width="1280" height="1046" loading="lazy">
+        <img src="assets/auth-12-tutor-exercises.png" alt="The teacher's exercise list with tiers and reference recordings." width="1280" height="575" loading="lazy">
         <figcaption><strong>Set up.</strong> The teacher builds exercises, records a reference for each and sets its tier.</figcaption>
       </figure>
       <figure class="shot">
@@ -538,15 +539,15 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <figcaption><strong>Practice.</strong> The student listens to the reference and records an attempt. Every attempt is kept.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/06-tutor-ai-reviewed.png" alt="A reviewed submission: perfect scores, three drafts, and the teacher's own approved message." width="1400" height="1210" loading="lazy">
-        <figcaption><strong>Approve.</strong> At tier 2 with perfect scores, one model wrote "you played very slowly… use a metronome". The teacher wrote 35 words of their own instead.</figcaption>
+        <img src="assets/06-tutor-ai-reviewed.png" alt="A reviewed submission: perfect scores, four drafts, and the approved message." width="1280" height="1427" loading="lazy">
+        <figcaption><strong>Approve.</strong> At tier 2 with perfect scores, the off-the-shelf models praised "the tempo" and "a steady, even rhythm", which aren't scored at that tier. The teacher approved the fine-tuned draft, which says only what the scores show.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/auth-16-student-submissions.png" alt="The student's submissions page showing only teacher-approved feedback." width="1280" height="905" loading="lazy">
+        <img src="assets/auth-16-student-submissions.png" alt="The student's submissions page showing only teacher-approved feedback." width="1280" height="900" loading="lazy">
         <figcaption><strong>The student sees only this.</strong> Approved feedback beside the recording. Never raw scores, never drafts.</figcaption>
       </figure>
       <figure class="shot">
-        <img src="assets/auth-06-tutor-models.png" alt="Model management: per-model corrections, retraining progress and a leaderboard with a length caveat." width="1280" height="1363" loading="lazy">
+        <img src="assets/auth-06-tutor-models.png" alt="Model management: per-model corrections, retraining progress and a leaderboard with a length caveat." width="1280" height="1539" loading="lazy">
         <figcaption><strong>Tailor.</strong> Each correction counts toward retraining at 50, 100, 200 and 300. The fine-tuned model drafts beside the originals, so everyday reviewing becomes the comparison.</figcaption>
       </figure>
     </div>
@@ -568,15 +569,15 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section id="field">
     <div class="stack prose">
       <span class="eyebrow">How it compares</span>
-      <h2>Where Piano Tutor fits among practice apps</h2>
-      <p>Consumer apps such as Yousician, Simply Piano and Skoove are excellent at instant note-by-note correction. They tell a student <em>that</em> a note was wrong, not <em>what to practice</em>, and the teacher isn't part of them. Teacher platforms such as SmartMusic, Piano Marvel and MatchMySound bring the teacher back, but what they generate automatically is a score. Piano Tutor works in the space between: it drafts the words, and the teacher approves them.</p>
+      <h2>Where Music Modeler fits among practice apps</h2>
+      <p>Consumer apps such as Yousician, Simply Piano and Skoove are excellent at instant note-by-note correction. They tell a student <em>that</em> a note was wrong, not <em>what to practice</em>, and the teacher isn't part of them. Teacher platforms such as SmartMusic, Piano Marvel and MatchMySound bring the teacher back, but what they generate automatically is a score. Music Modeler works in the space between: it drafts the words, and the teacher approves them.</p>
     </div>
     <div class="tablewrap card">
       <table>
-        <thead><tr><th>Feature</th><th>Yousician</th><th>Simply Piano</th><th>Skoove</th><th>Flowkey</th><th>Piano Marvel</th><th>SmartMusic</th><th>MatchMySound</th><th class="us">Piano Tutor</th></tr></thead>
+        <thead><tr><th>Feature</th><th>Yousician</th><th>Simply Piano</th><th>Skoove</th><th>Flowkey</th><th>Piano Marvel</th><th>SmartMusic</th><th>MatchMySound</th><th class="us">Music Modeler</th></tr></thead>
         <tbody>
           <tr><td>Listens through a microphone</td><td class="y">yes</td><td class="p">partly</td><td class="y">yes</td><td class="y">yes</td><td class="p">needs MIDI</td><td class="y">yes</td><td class="y">yes</td><td class="us y">yes</td></tr>
-          <tr><td>Corrects notes live, as you play</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="us n">no, whole take</td></tr>
+          <tr><td>Feedback while you play</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="us p">after: the whole take is evaluated</td></tr>
           <tr><td>Timing and tempo as separate measures</td><td class="p">timing</td><td class="p">timing</td><td class="p">timing</td><td class="n">no</td><td class="p">timing</td><td class="p">rhythm</td><td class="y">yes</td><td class="us y">yes</td></tr>
           <tr><td>Strictness set per student by the teacher</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="p">levels</td><td class="n">—</td><td class="n">—</td><td class="us y">4 tiers</td></tr>
           <tr><td>Teacher's own recording as the reference</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="y">yes</td><td class="us y">yes</td></tr>
@@ -635,7 +636,7 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </article>
       <article class="doc card">
         <h3>Code</h3>
-        <p><a class="mono" href="https://github.com/arunanagabhushan-cmd/piano-tutor-app">piano-tutor-app</a>: the teacher and student web app, grader and feedback pipeline. <a class="mono" href="https://github.com/arunanagabhushan-cmd/piano-tutor-eval">piano-tutor-eval</a>: the evaluation harness and training scripts.</p>
+        <p><a class="mono" href="https://github.com/arunanagabhushan-cmd/piano-tutor-app">music-modeler-app</a>: the teacher and student web app, grader and feedback pipeline. <a class="mono" href="https://github.com/arunanagabhushan-cmd/piano-tutor-eval">music-modeler-evaluator</a>: the evaluation harness and training scripts.</p>
         <span class="status"><a href="https://github.com/arunanagabhushan-cmd/piano-tutor-app">App on GitHub →</a> &nbsp;·&nbsp; <a href="https://github.com/arunanagabhushan-cmd/piano-tutor-eval">Harness on GitHub →</a></span>
       </article>
     </div>
@@ -645,7 +646,7 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="wrap">
   <footer>
     <div class="row">
-      <span>Piano Tutor · 2026 · <span id="authors">Aruna Nagabhushan, Neuqua Valley High School · Summer Internship 2026, Vanderbilt University</span></span>
+      <span>Music Modeler · 2026 · <span id="authors">Aruna Nagabhushan, Neuqua Valley High School · Summer Internship 2026, Vanderbilt University</span></span>
     </div>
   </footer>
 </div>

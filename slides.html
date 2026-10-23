@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Piano-Tutor App · Presentation</title>
-<meta name="description" content="A short presentation of the Piano-Tutor App: the scoring pipeline, the language models that write encouraging feedback, and the results.">
+<title>Music Modeler – a piano tutor app · Presentation</title>
+<meta name="description" content="A short presentation of Music Modeler, a piano tutor app: the scoring pipeline, the language models that write encouraging feedback, and the results.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -97,6 +97,7 @@ svg text{font-family:var(--mono)}
 .prog i{display:block;height:100%;width:0;background:var(--felt);transition:width .3s}
 .count{font-family:var(--mono);color:var(--muted);min-width:56px;text-align:right}
 @media (max-width:600px){.bar{gap:10px;padding-inline:16px}.bar .home{display:none}.bar button{padding:8px 10px}}
+.h1sub{display:block;font-size:.4em;line-height:1.2;font-style:italic;color:var(--muted);margin-top:.3em;letter-spacing:0}
 </style>
 </head>
 <body>
@@ -105,7 +106,7 @@ svg text{font-family:var(--mono)}
 <!-- 1 -->
 <section class="slide title-slide" aria-label="Title">
   <span class="kicker">Children's practice feedback · teacher approves</span>
-  <h1>Piano&#8209;Tutor App</h1>
+  <h1>Music Modeler<span class="h1sub">a piano tutor app</span></h1>
   <p class="tag">From notes to kind words.</p>
   <p class="sub">A Tiered&#8209;Scoring Pipeline and Teacher&#8209;tailored Language Models to provide encouraging feedback to students based on their piano practice</p>
   <div class="by">
@@ -125,7 +126,7 @@ svg text{font-family:var(--mono)}
     <div class="card"><div class="lbl">Alone</div><div class="big">6<small> days a week</small></div><p class="txt">A mistake practiced all week gets learned.</p></div>
     <div class="card"><div class="lbl">What feedback needs</div><div class="big" style="font-size:44px;line-height:1.15">Right<br><span style="color:var(--felt)">and kind</span></div><p class="txt">Wrong advice is worse than none: a child will practice it.</p></div>
   </div>
-  <p class="lead" style="margin-top:22px">Piano-Tutor scores each practice recording against the teacher's own recording, and small local language models draft encouraging feedback that the teacher approves.</p>
+  <p class="lead" style="margin-top:22px">Music Modeler scores each practice recording against the teacher's own recording, and small local language models draft encouraging feedback that the teacher approves.</p>
 </section>
 
 <!-- 3 -->
@@ -207,12 +208,12 @@ svg text{font-family:var(--mono)}
   <span class="kicker">Part II · What prompting couldn't fix</span>
   <h2>Warm, but making things up</h2>
   <div class="row" style="grid-template-columns:1.2fr 1fr;flex:1;min-height:0;align-items:center">
-    <figure style="height:100%"><img src="assets/auth-14-tutor-ai-review-5.png" alt="The teacher's review screen with scores and three model drafts."></figure>
+    <figure style="height:100%"><img src="assets/auth-14-tutor-ai-review-5.png" alt="The teacher's review screen with scores, the fine-tuned draft and three off-the-shelf drafts."></figure>
     <div style="display:flex;flex-direction:column;gap:16px">
-      <p style="font-size:19px">Timing perfect, speed within range, no tempo flag. Yet:</p>
-      <p class="quote"><span class="who">llama</span>"…slightly slower than expected."</p>
-      <p class="quote"><span class="who">qwen</span>"…you rushed a bit."</p>
-      <p class="quote"><span class="who">gemma</span>"…smoother in terms of timing."</p>
+      <p style="font-size:19px">One missed note per phrase, at tier 2, where timing isn't scored. Yet:</p>
+      <p class="quote"><span class="who">gemma</span>"…more focus on timing… use a metronome."</p>
+      <p class="quote"><span class="who">qwen</span>"…hitting the final note clearly." (the missed note wasn't the last)</p>
+      <p class="quote"><span class="who">llama</span>"…every note right in terms of order." (order 0.80)</p>
     </div>
   </div>
 </section>
@@ -272,14 +273,14 @@ svg text{font-family:var(--mono)}
   <span class="kicker">How it compares</span>
   <h2>Between practice apps and teacher platforms</h2>
   <table class="mid">
-    <thead><tr><th></th><th>Yousician</th><th>Simply Piano</th><th>Skoove</th><th>Piano Marvel</th><th>SmartMusic</th><th>MatchMySound</th><th class="us">Piano-Tutor</th></tr></thead>
+    <thead><tr><th></th><th>Yousician</th><th>Simply Piano</th><th>Skoove</th><th>Piano Marvel</th><th>SmartMusic</th><th>MatchMySound</th><th class="us">Music Modeler</th></tr></thead>
     <tbody>
       <tr><td>Teacher's own recording as reference</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="y">yes</td><td class="us y">yes</td></tr>
       <tr><td>Strictness set per student</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="p">levels</td><td class="n">—</td><td class="n">—</td><td class="us y">4 tiers</td></tr>
       <tr><td>Written feedback, phrase by phrase</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="p">teacher types</td><td class="p">teacher types</td><td class="us y">AI drafts</td></tr>
       <tr><td>Teacher approves before the student sees it</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="us y">yes</td></tr>
       <tr><td>Teacher's edits improve the system</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="n">no</td><td class="us y">yes</td></tr>
-      <tr><td>Corrects notes live, as you play</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="us n">whole take</td></tr>
+      <tr><td>Feedback while you play</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="y">yes</td><td class="us p">after: evaluated as a whole</td></tr>
     </tbody>
   </table>
   <p class="small" style="margin-bottom:auto">From vendor pages and independent 2026 reviews; "—" means the sources didn't say.</p>
@@ -313,7 +314,7 @@ svg text{font-family:var(--mono)}
 </div></div>
 
 <nav class="bar" aria-label="Slide controls">
-  <a class="home" href="index.html">← Piano&#8209;Tutor App</a>
+  <a class="home" href="index.html">← Music Modeler</a>
   <button id="prev" type="button" aria-label="Previous slide">← Prev</button>
   <div class="prog" aria-hidden="true"><i id="prog"></i></div>
   <span class="count" id="count">1 / 16</span>

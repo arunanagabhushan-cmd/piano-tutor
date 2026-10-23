@@ -1,4 +1,4 @@
-# Piano-Tutor App: A Tiered Scoring Pipeline and Teacher-Tailored Language Models for Student's Piano Practice Feedback
+# Music Modeler: A piano tutoring app using a Tiered Scoring Pipeline and Teacher-Tailored Language Models for Student Feedback
 
 **Technical Report · Summer Internship 2026, Vanderbilt University**
 
@@ -12,23 +12,27 @@
 ## Abstract
 
 Children learning piano practice mostly alone between lessons, and mistakes
-practiced without feedback become habits. This report presents a locally
-hosted system that turns each practice recording into short, encouraging,
+practiced without feedback become habits. This report presents Music Modeler,
+a system that turns each practice recording into short, encouraging,
 teacher-approved feedback. It is organized in two parts.
 
 **Part I** describes the data-scoring pipeline and how it was improved. A
 recording is transcribed to notes and cleaned of transcription artifacts. It
 is then aligned with the teacher's own reference recording and scored phrase
 by phrase on up to four dimensions (pitch, note order, timing and tempo,
-dynamics), which a per-assignment tier switches on. We document the faults
-found and fixed, each with before-and-after evidence:
+dynamics), which a per-assignment tier switches on. Unlike practice apps that
+judge each note as it is played, the pipeline evaluates the entire submission
+phrase by phrase, matching notes by their longest common subsequence so the
+notes on either side of a mistake still pair up; its layered tiers never
+penalize a student for a tier above the one being trained. We document the
+faults found and fixed, each with before-and-after evidence:
 - a slow student lost up to half their notes before scoring;
 - tempo was absorbed entirely, so a performance at one third speed scored
   perfectly;
 - the duration measure inverted below half speed.
 
-A mutation-based harness then verifies the pipeline against a closed-form
-oracle over 186 generated attempts with 396 recorded mistakes.
+A mistake-injection test harness then verifies the pipeline against a
+closed-form oracle over 186 generated attempts with 396 recorded mistakes.
 
 **Part II** turns to the language models that write the feedback. Small local
 models (2–3B parameters) were given the score data and a prompt written for a
@@ -80,7 +84,7 @@ evaluation, LLM-as-a-judge, QLoRA, mutation testing.
 13. Beyond Piano
 14. Conclusion and Future Work
 
-References
+Acknowledgments · References
 
 ---
 
@@ -1430,7 +1434,7 @@ The same walkthrough is also published as a standalone web page, with every scre
 
 This chapter walks through the toolset as it is used. The screenshots come from
 the running application with its sample accounts: one teacher (Mrs. Lee) and a
-student (Alex Kim). The harness example in §11.7 is a real case from the
+student (Avery Morgan). The harness example in §11.7 is a real case from the
 canonical run, reproduced from its stored files.
 
 ### 11.1 The teacher sets up a course
@@ -1478,37 +1482,38 @@ The review screen is the center of the system. It shows the recording, the
 score vector from Part I, and one draft per active model, ordered by how little
 the teacher has had to change each model in the past.
 
-![Review screen, tier 3](assets/auth-14-tutor-ai-review-5.png)
+![Review screen, tier 2](assets/auth-14-tutor-ai-review-5.png)
 
-This tier-3 attempt at *Ode to Joy* reads:
+This tier-2 attempt at a G major scale and arpeggio missed one note in each
+phrase. At tier 2 only the notes and their order are scored:
 
 | Score | Value | Meaning |
 |---|---|---|
-| Pitch F1 | 0.91 | nearly all the right notes |
+| Pitch F1 | 0.89 | nearly all the right notes |
 | Pitch precision | 1.00 | nothing extra was played |
-| Pitch recall | 0.84 | a few notes were missed |
-| Order | 0.84 | sequence mostly correct |
-| Timing | 1.00 | played evenly |
-| Duration | 1.00 | notes held correctly for the speed chosen |
-| Tempo | 0.88 | 1.12× the teacher's speed, not enough to raise a flag |
+| Pitch recall | 0.80 | one note in each phrase was missed |
+| Order | 0.80 | sequence mostly correct |
 
-The three *base* models' drafts show the failure Part II measures. No tempo
-flag was raised and timing was perfect. Even so:
-- **Llama** says the second section "is slightly slower than expected";
-- **Qwen** says the student "rushed a bit";
-- **Gemma** suggests the playing "could be smoother in terms of timing".
+The fine-tuned model's draft stays with what was measured: the first section
+mostly right, the second close. The three *base* models' drafts show the
+failure Part II measures:
+- **Gemma** says the second section "needs some more focus on timing" and
+  suggests a metronome, though timing is not scored at this tier;
+- **Qwen** tells the student to make sure they are "hitting the final note
+  clearly", though the missed note was not the last one;
+- **Llama** says that in the first phrase the student "got every note right in
+  terms of order", though order scored 0.80.
 
-None of these is supported by the scores. The real issue, a few missed notes,
-is mentioned by only one draft, and vaguely. This one screen is the case for
-both the teacher-approval step (§6.4) and fine-tuning (Chapter 8).
+None of these is supported by the scores. This one screen is the case for both
+the teacher-approval step (§6.4) and fine-tuning (Chapter 8). Here the teacher
+sent the fine-tuned draft and asked for another attempt.
 
 ### 11.4 The teacher approves, and the child sees only that
 
-A second review, at tier 2, where tempo is not scored at all, shows the same
-pattern more starkly. The student scored 1.00 on every measure, yet one base
-model wrote: *"You played very slowly in this exercise … Practice playing
-along with a metronome."* The teacher replaced all three drafts with a 35-word
-message of their own and approved it.
+The second attempt scored 1.00 on every measure. The base models still praised
+things tier 2 does not measure: *"The tempo feels good"* (Llama), *"a steady,
+even rhythm"* (Qwen) and *"using your hands well"* (Gemma). The fine-tuned
+draft said only what the scores show, and the teacher approved it as written.
 
 ![Reviewed submission, tier 2](assets/06-tutor-ai-reviewed.png)
 
@@ -1531,7 +1536,7 @@ screen turns these records into the tailoring framework of §6.4:
 ![Model management](assets/auth-06-tutor-models.png)
 
 The fine-tuned `gemma2:2b-instruct-q4_K_M-tuned` appears at the top as an
-*active* model with no corrections yet. It drafts beside the three base models,
+*active* model with its first 10 corrections. It drafts beside the three base models,
 so the teacher's ordinary reviewing becomes the comparison between them.
 
 ### 11.6 Roles stay separate
@@ -1687,7 +1692,7 @@ the piano.
   - the tiered score vector with absent dimensions;
   - the child-centered prompt and rubric;
   - teacher approval and the tailoring loop;
-  - the mutation-based harness.
+  - the mistake-injection test harness.
 - **Supplied by each new subject:**
   - a transcriber and a cleanup stage;
   - the tier definitions;
@@ -1726,6 +1731,10 @@ fixing the faults that made its numbers wrong:
 - a duration measure that inverted;
 - penalties for transcription artifacts.
 
+The pipeline evaluates the entire submission phrase by phrase, keeps the notes
+on either side of a mistake paired, and, through its layered tiers, never
+penalizes a student for a tier above the one being trained.
+
 We then trained small local language models to write from those numbers in a
 way a child hears as encouraging, without inventing problems. Tier violations
 fell from 239 to 3, and tone reached near-ceiling while accuracy held.
@@ -1746,7 +1755,12 @@ version of the models to that teacher.
      in simulation.
 3. **Learning outcomes.** A small study with real students, measuring whether
    teacher-approved automated feedback between lessons speeds progress.
-4. **Other tutoring domains.** The system was built with piano as its
+4. **Scalability.** Test how the pipeline and the local models hold up as the
+   numbers of teachers, students and recordings grow.
+5. **A practice-session inner loop.** Train an inner loop that follows a
+   student's practice session and gives the teacher enough feedback on the
+   student's performance between lessons.
+6. **Other tutoring domains.** The system was built with piano as its
    subject, but its feedback, approval, tailoring and bootstrapping layers do
    not depend on the instrument. A new domain must supply a transcriber, a
    cleanup stage, tier definitions and a set of mistake operators.
@@ -1761,6 +1775,16 @@ version of the models to that teacher.
      tempo-normalized duration, and, for Vedic recitation, pitch accents.
    - In both, the beginner rule carries over: slow, accurate work is not
      criticized for pace at the first tiers.
+
+---
+
+## Acknowledgments
+
+This work was carried out by Aruna Nagabhushan (Neuqua Valley High School)
+during a 2026 summer internship at Vanderbilt University, under the guidance of
+Dr. Aniruddha Gokhale, Dr. Himanshu Neema and Dr. Yogesh Barve. The test
+harness runs and the fine-tuning of the language models were carried out on the
+Chameleon Cloud infrastructure at the University of Chicago [35].
 
 ---
 
@@ -1882,3 +1906,6 @@ scaled disagreement or partial credit," *Psychological Bulletin*, 70(4), 1968, p
 
 [34] D. Manheim and S. Garrabrant, "Categorizing Variants of Goodhart's Law,"
 arXiv:1803.04585, 2018.
+
+[35] K. Keahey, J. Anderson, Z. Zhen et al., "Lessons Learned from the Chameleon Testbed,"
+*USENIX ATC*, 2020, pp. 909–923.

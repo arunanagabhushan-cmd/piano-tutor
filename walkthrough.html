@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Piano-Tutor App · Walkthrough</title>
-<meta name="description" content="A step-by-step walkthrough of the Piano Tutor toolset: the teacher and student app, and one real case through the evaluation harness.">
+<title>Music Modeler – a piano tutor app · Walkthrough</title>
+<meta name="description" content="A step-by-step walkthrough of the Music Modeler toolset: the teacher and student app, and one real case through the evaluation harness.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
@@ -81,11 +81,11 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><a href="index.html">← Piano-Tutor App</a><a href="notes.html">Notes on the numbers</a></div>
+  <div class="top"><a href="index.html">← Music Modeler</a><a href="notes.html">Notes on the numbers</a></div>
 
   <span class="eyebrow" style="display:block;margin-top:28px">Walkthrough</span>
   <h1>The toolset, step by step</h1>
-  <p class="lede">This page follows one practice attempt through the Piano Tutor app, from the teacher setting an exercise to the student reading approved feedback. It then follows one real case through the evaluation harness that tested and trained the system. The screens are from the running app with its sample accounts: a teacher, Mrs. Lee, and a student, Alex Kim. Click any screen to see it full size.</p>
+  <p class="lede">This page follows one practice attempt through the Music Modeler app, from the teacher setting an exercise to the student reading approved feedback. It then follows one real case through the evaluation harness that tested and trained the system. The screens are from the running app with its sample accounts: a teacher, Mrs. Lee, and a student, Avery Morgan. Click any screen to see it full size.</p>
   <p class="byline small muted" style="margin-top:10px">By <strong>Aruna Nagabhushan</strong>, <strong>Neuqua Valley High School</strong> · Summer Internship 2026, <strong>Vanderbilt University</strong>, under the guidance of <strong>Dr. Aniruddha Gokhale</strong>, <strong>Dr. Himanshu Neema</strong> and <strong>Dr. Yogesh Barve</strong>, <strong>Vanderbilt University</strong></p>
 
   <nav class="toc" aria-label="Steps">
@@ -134,7 +134,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
       <ul class="pts"><li>Tier 1: right notes</li><li>Tier 2: + right order</li><li>Tier 3: + even, right speed, notes held right</li><li>Tier 4: + loud and soft</li></ul>
       <p class="small muted">Every score is relative to this recording, not to a printed score.</p>
     </div>
-    <figure><a href="assets/auth-12-tutor-exercises.png" title="Open full size"><img src="assets/auth-12-tutor-exercises.png" alt="The teacher's exercise list, showing tiers and reference recordings." width="1280" height="1046" loading="lazy"></a><figcaption>Exercises, each with its tier and reference.</figcaption></figure>
+    <figure><a href="assets/auth-12-tutor-exercises.png" title="Open full size"><img src="assets/auth-12-tutor-exercises.png" alt="The teacher's exercise list, showing tiers and reference recordings." width="1280" height="575" loading="lazy"></a><figcaption>Exercises, each with its tier and reference.</figcaption></figure>
   </section>
 
   <section class="step" id="roster">
@@ -143,7 +143,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
       <h3>The teacher manages students</h3>
       <p>Students are added by name and email. The teacher can reset a password, and archive a student rather than delete them, so a student's practice history is never lost.</p>
     </div>
-    <figure><a href="assets/auth-05-tutor-students.png" title="Open full size"><img src="assets/auth-05-tutor-students.png" alt="The teacher's student roster with reset-password and archive controls." width="1280" height="900" loading="lazy"></a><figcaption>The roster.</figcaption></figure>
+    <figure><a href="assets/auth-05-tutor-students.png" title="Open full size"><img src="assets/auth-05-tutor-students.png" alt="The teacher's student roster with reset-password and archive controls." width="1280" height="825" loading="lazy"></a><figcaption>The roster.</figcaption></figure>
   </section>
 
   <section class="step" id="assign">
@@ -152,7 +152,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
       <h3>The teacher assigns lessons</h3>
       <p>Lessons are assigned to each student individually, with optional instructions such as "Focus on keeping fingers curved".</p>
     </div>
-    <figure><a href="assets/auth-11-tutor-lessons.png" title="Open full size"><img src="assets/auth-11-tutor-lessons.png" alt="The lessons page with per-student assignment and instructions." width="1280" height="908" loading="lazy"></a><figcaption>Assigning lessons, with instructions.</figcaption></figure>
+    <figure><a href="assets/auth-11-tutor-lessons.png" title="Open full size"><img src="assets/auth-11-tutor-lessons.png" alt="The lessons page with per-student assignment and instructions." width="1280" height="730" loading="lazy"></a><figcaption>Assigning lessons, with instructions.</figcaption></figure>
   </section>
 
   <section class="step" id="student-lessons">
@@ -187,25 +187,25 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
     <div class="txt">
       <span class="num">A7 · TEACHER</span>
       <h3>The teacher reviews scores and drafts</h3>
-      <p>The review screen shows the recording, the scores, and one draft per model. This tier-3 attempt at <em>Ode to Joy</em> scored pitch 0.91, order 0.84, timing 1.00 and tempo 0.88: 1.12× the teacher's speed, below the threshold for a flag.</p>
-      <p>All three off-the-shelf models still commented on speed or timing:</p>
+      <p>The review screen shows the recording, the scores, and one draft per model. This tier-2 attempt at a G major scale and arpeggio missed one note in each phrase: pitch 0.89, precision 1.00, recall 0.80 and order 0.80.</p>
+      <p>The fine-tuned model's draft matches the scores. The three off-the-shelf models still got things wrong:</p>
       <div class="say">
-        <div><b>llama</b><span>"…slightly slower than expected."</span></div>
-        <div><b>qwen</b><span>"…you rushed a bit."</span></div>
-        <div><b>gemma</b><span>"…smoother in terms of timing."</span></div>
+        <div><b>gemma</b><span>"…more focus on timing… use a metronome." Timing isn't scored at tier 2.</span></div>
+        <div><b>qwen</b><span>"…hitting the final note clearly." The missed note wasn't the last one.</span></div>
+        <div><b>llama</b><span>"…every note right in terms of order." Order scored 0.80.</span></div>
       </div>
       <p class="callout">None of these is supported by the scores. This is the failure that fine-tuning was used to remove (Part B), and the reason the teacher approves every message.</p>
     </div>
-    <figure><a href="assets/auth-14-tutor-ai-review-5.png" title="Open full size"><img src="assets/auth-14-tutor-ai-review-5.png" alt="The review screen: recording, seven score bars and three model drafts." width="1280" height="1139" loading="lazy"></a><figcaption>The review screen, tier 3.</figcaption></figure>
+    <figure><a href="assets/auth-14-tutor-ai-review-5.png" title="Open full size"><img src="assets/auth-14-tutor-ai-review-5.png" alt="The review screen: recording, four score bars, the fine-tuned draft and three off-the-shelf drafts." width="1280" height="1469" loading="lazy"></a><figcaption>The review screen, tier 2.</figcaption></figure>
   </section>
 
   <section class="step" id="approve">
     <div class="txt">
       <span class="num">A8 · TEACHER</span>
       <h3>The teacher approves</h3>
-      <p>The teacher picks a draft and edits it, or writes their own, then approves it or asks for another attempt. In this tier-2 review the student scored 1.00 everywhere, yet one model wrote "You played very slowly … practice with a metronome". Speed isn't even scored at tier 2. The teacher replaced all three drafts with a 35-word message of their own.</p>
+      <p>The teacher picks a draft and edits it, or writes their own, then approves it or asks for another attempt. On the second attempt the student scored 1.00 everywhere, yet the off-the-shelf models praised things tier 2 doesn't measure: "The tempo feels good" (llama), "a steady, even rhythm" (qwen), "using your hands well" (gemma). The fine-tuned draft said only what the scores show, and the teacher approved it as written.</p>
     </div>
-    <figure><a href="assets/06-tutor-ai-reviewed.png" title="Open full size"><img src="assets/06-tutor-ai-reviewed.png" alt="A reviewed submission with perfect scores, three drafts and the teacher's own message." width="1400" height="1210" loading="lazy"></a><figcaption>An approved review, tier 2.</figcaption></figure>
+    <figure><a href="assets/06-tutor-ai-reviewed.png" title="Open full size"><img src="assets/06-tutor-ai-reviewed.png" alt="An approved submission with perfect scores, four drafts and the approved message." width="1280" height="1427" loading="lazy"></a><figcaption>An approved review, tier 2.</figcaption></figure>
   </section>
 
   <section class="step" id="child-view">
@@ -214,7 +214,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
       <h3>What the student sees</h3>
       <p>Only the approved message, next to the recording it is about. The student never sees raw scores or model drafts. Attempts still waiting say so.</p>
     </div>
-    <figure><a href="assets/auth-16-student-submissions.png" title="Open full size"><img src="assets/auth-16-student-submissions.png" alt="The student's submissions with approved feedback and pending items." width="1280" height="905" loading="lazy"></a><figcaption>The student's submissions.</figcaption></figure>
+    <figure><a href="assets/auth-16-student-submissions.png" title="Open full size"><img src="assets/auth-16-student-submissions.png" alt="The student's submissions with approved feedback and pending items." width="1280" height="900" loading="lazy"></a><figcaption>The student's submissions.</figcaption></figure>
   </section>
 
   <section class="step" id="tailor">
@@ -230,7 +230,7 @@ footer{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);font-si
       </ul>
       <p>The fine-tuned model sits at the top, drafting beside the originals, so everyday reviewing is the comparison.</p>
     </div>
-    <figure><a href="assets/auth-06-tutor-models.png" title="Open full size"><img src="assets/auth-06-tutor-models.png" alt="Model management: corrections, retraining progress, leaderboard and length caveat." width="1280" height="1363" loading="lazy"></a><figcaption>Model management.</figcaption></figure>
+    <figure><a href="assets/auth-06-tutor-models.png" title="Open full size"><img src="assets/auth-06-tutor-models.png" alt="Model management: corrections, retraining progress, leaderboard and length caveat." width="1280" height="1539" loading="lazy"></a><figcaption>Model management.</figcaption></figure>
   </section>
 
   <section class="step" id="roles">
@@ -359,10 +359,10 @@ grader faults 0 · generator faults 0</pre>
       <p>The export step writes a training script for each model. After training on a single consumer GPU, the tuned model is merged, compressed to match its original and registered locally. It then appears on the model screen (A10), drafting beside the originals for real students, and real corrections start to accumulate toward its next retraining point.</p>
       <p><a href="index.html#results">See the results across all 186 cases →</a></p>
     </div>
-    <figure><a href="assets/auth-06-tutor-models.png" title="Open full size"><img src="assets/auth-06-tutor-models.png" alt="The fine-tuned model at the top of the model screen." width="1280" height="1363" loading="lazy"></a><figcaption>The tuned model, active in the app.</figcaption></figure>
+    <figure><a href="assets/auth-06-tutor-models.png" title="Open full size"><img src="assets/auth-06-tutor-models.png" alt="The fine-tuned model at the top of the model screen." width="1280" height="1539" loading="lazy"></a><figcaption>The tuned model, active in the app.</figcaption></figure>
   </section>
 
-  <footer><span>Piano Tutor · 2026 · Aruna Nagabhushan, Neuqua Valley High School</span><span><a href="index.html">Main page</a> · <a href="notes.html">Notes on the numbers</a></span></footer>
+  <footer><span>Music Modeler · 2026 · Aruna Nagabhushan, Neuqua Valley High School</span><span><a href="index.html">Main page</a> · <a href="notes.html">Notes on the numbers</a></span></footer>
 </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
-# Piano-Tutor App — project website
+# Music Modeler – a piano tutor app: project website
 
-The website for the Piano-Tutor App. It will be published with GitHub Pages at
+The website for Music Modeler, a piano tutor app. It will be published with GitHub Pages at
 https://arunanagabhushan-cmd.github.io/piano-tutor/
 
 ## Previewing before publication

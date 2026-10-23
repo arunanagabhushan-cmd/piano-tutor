@@ -1,7 +1,7 @@
 # GitHub Pages (Jekyll) settings for the project website.
 # Markdown pages such as report.md are rendered to .html with _layouts/default.html.
 # Plain .html pages (index, slides, walkthrough, notes) are copied unchanged.
-title: Piano-Tutor App
+title: Music Modeler – a piano tutor app
 markdown: kramdown
 kramdown:
   input: GFM
