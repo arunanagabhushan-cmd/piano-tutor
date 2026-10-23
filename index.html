@@ -217,6 +217,14 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 @media (max-width:480px){.tier{grid-template-columns:3.4rem 1fr}}
 .h1sub{display:block;font-size:.4em;line-height:1.2;font-style:italic;color:var(--muted);margin-top:.3em;letter-spacing:0}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(20rem,1fr));gap:clamp(20px,4vw,40px);align-items:start;margin-top:20px}
+.vid{margin:0;min-width:0}
+.vid video{display:block;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:6px}
+.vid figcaption{margin-top:10px}
+.chapters{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:2px 16px}
+.chapters button{all:unset;cursor:pointer;display:flex;gap:10px;padding:4px 0;color:var(--fg);font-size:var(--step--1)}
+.chapters button:hover,.chapters button:focus-visible{color:var(--felt);text-decoration:underline}
+.chapters .t{font-family:var(--mono);color:var(--muted);min-width:2.6rem}
 </style>
 </head>
 <body>
@@ -224,7 +232,7 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <header class="top">
     <div class="brand">Music Modeler</div>
     <nav aria-label="Sections">
-      <a href="#how">How it works</a><a href="#architecture">Architecture</a><a href="#pipeline">Scoring</a><a href="#models">Language models</a><a href="#tools">Teacher's tools</a><a href="walkthrough.html">Walkthrough</a><a href="slides.html">Presentation</a><a href="report.html">Report</a><a href="#field">Compared</a><a href="#beyond">Beyond piano</a><a href="#read">Read more</a>
+      <a href="#watch">Watch</a><a href="#how">How it works</a><a href="#architecture">Architecture</a><a href="#pipeline">Scoring</a><a href="#models">Language models</a><a href="#tools">Teacher's tools</a><a href="walkthrough.html">Walkthrough</a><a href="slides.html">Presentation</a><a href="report.html">Report</a><a href="#field">Compared</a><a href="#beyond">Beyond piano</a><a href="#read">Read more</a>
     </nav>
   </header>
 
@@ -277,6 +285,44 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </div>
 
 <div class="wrap">
+  <section id="watch">
+    <div class="stack prose">
+      <span class="eyebrow">Watch</span>
+      <h2>See it working</h2>
+      <p class="muted">Both videos are recordings of the running app, with the piano recordings it scored. There is no voice-over.</p>
+    </div>
+    <div class="vids">
+      <figure class="vid">
+        <video controls preload="metadata" playsinline poster="video/music-modeler-hook-poster.jpg">
+          <source src="video/music-modeler-hook.mp4" type="video/mp4">
+          <a href="video/music-modeler-hook.mp4">Download the short video</a>
+        </video>
+        <figcaption><strong>In under three minutes</strong> (2:45). A student practices, the teacher reviews, and the fine-tuned model's feedback is compared with the off-the-shelf models'.</figcaption>
+      </figure>
+      <figure class="vid">
+        <video id="demo" controls preload="metadata" playsinline poster="video/music-modeler-demo-poster.jpg">
+          <source src="video/music-modeler-demo.mp4" type="video/mp4">
+          <a href="video/music-modeler-demo.mp4">Download the demo</a>
+        </video>
+        <figcaption><strong>The full demo</strong> (8:08). The whole loop, with the scoring pipeline and the six kinds of mistake explained along the way. Jump to a chapter:</figcaption>
+        <ol class="chapters" aria-label="Demo chapters">
+          <li><button type="button" data-t="0"><span class="t">0:00</span>Introduction</button></li>
+          <li><button type="button" data-t="7"><span class="t">0:07</span>The problem</button></li>
+          <li><button type="button" data-t="15"><span class="t">0:15</span>How it works: six steps</button></li>
+          <li><button type="button" data-t="69"><span class="t">1:09</span>Live: the teacher sets up</button></li>
+          <li><button type="button" data-t="143"><span class="t">2:23</span>Live: a student practices</button></li>
+          <li><button type="button" data-t="182"><span class="t">3:02</span>Inside the scoring</button></li>
+          <li><button type="button" data-t="237"><span class="t">3:57</span>Six kinds of mistake</button></li>
+          <li><button type="button" data-t="287"><span class="t">4:47</span>Live: the teacher reviews</button></li>
+          <li><button type="button" data-t="332"><span class="t">5:32</span>Live: practice, and try again</button></li>
+          <li><button type="button" data-t="401"><span class="t">6:41</span>Why fine-tune the models?</button></li>
+          <li><button type="button" data-t="435"><span class="t">7:15</span>Live: the teacher shapes the models</button></li>
+          <li><button type="button" data-t="455"><span class="t">7:35</span>Where it fits</button></li>
+        </ol>
+      </figure>
+    </div>
+  </section>
+
   <section id="how">
     <div class="stack prose">
       <span class="eyebrow">How it works</span>
@@ -781,6 +827,13 @@ footer .row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   drawAll();
   if(window.matchMedia){const mq=matchMedia('(prefers-color-scheme: dark)');(mq.addEventListener?mq.addEventListener('change',drawAll):mq.addListener(drawAll));}
   new MutationObserver(drawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+// demo chapters: jump the player to the chapter's start
+(function(){
+  const v=document.getElementById('demo'); if(!v) return;
+  document.querySelectorAll('.chapters button').forEach(b=>b.addEventListener('click',()=>{
+    v.currentTime=+b.dataset.t; v.play().catch(()=>{}); v.scrollIntoView({behavior:'smooth',block:'center'});
+  }));
 })();
 </script>
 </body>
